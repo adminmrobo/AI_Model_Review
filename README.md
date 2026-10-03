@@ -27,3 +27,13 @@ AI_Model_Review/
 ├── README.md
 └── .nojekyll
 ```
+
+강사용 자료: 각 편의 확인 문제 채점 기준과 Colab 과제 예시 답안은 `answers.html`(교육자용 정답)에 있다.
+
+## 라이선스
+
+이 저작물(웹 페이지, 그림, 코드)은 [크리에이티브 커먼즈 저작자표시-비영리 4.0 국제 라이선스(CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.ko)로 공개한다.
+
+- 비상업적 목적에 한해 자유롭게 공유하고 고쳐 쓸 수 있다.
+- **출처를 반드시 표기**해야 한다. 표기 예: 안상선, 「딥러닝 A to Z · 3-1 AI는 어떻게 작동하나」, AI Model Review.
+- 상업적 이용은 저작자의 별도 허락이 필요하다.

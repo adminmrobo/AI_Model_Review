@@ -96,6 +96,7 @@ section.part{padding:64px 0 24px}
 
 /* 보는 법 */
 .how{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.how a{color:var(--cyan)}
 .how div{background:var(--panel);border:3px solid var(--line);padding:16px 18px}
 .how h3{font-family:var(--pix);font-weight:400;font-size:16px;margin:0 0 6px;color:var(--amber)}
 .how p{margin:0;font-size:15px}
@@ -105,6 +106,7 @@ footer{margin-top:56px;padding:28px 0 48px;border-top:4px solid var(--line);back
 footer b{color:var(--text)}
 @media (prefers-reduced-motion:reduce){.hero .line .cur{animation:none}}
 </style>
+<style id="cc-style">.cc{margin-top:14px;padding-top:12px;border-top:1px solid rgba(181,171,214,.3);font-size:13px;line-height:1.7}.cc .ccb{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:0 5px;margin-right:4px;font-weight:700;font-size:11.5px;letter-spacing:.02em}.cc a{color:inherit}</style>
 </head>
 <body>
 <a class="skip" href="#map">전체 목록으로 바로 가기</a>
@@ -177,6 +179,7 @@ footer b{color:var(--text)}
       <div><h3>버튼만 누르세요</h3><p>모든 그림은 버튼으로 바꿔 볼 수 있고, 아래 문장이 결과에 맞춰 바뀝니다. 직접 입력할 것은 없어요.</p></div>
       <div><h3>밑줄 친 낱말</h3><p>점선 밑줄이 있는 용어에 손가락이나 마우스를 올리면 쉬운 뜻이 나옵니다. 편마다 용어 사전도 있어요.</p></div>
       <div><h3>Colab에서 직접 실행</h3><p>각 편의 "코드" 칸에서 노트북을 내려받아 Google Colab에 올리면, 페이지의 숫자를 그대로 다시 계산해 볼 수 있습니다.</p></div>
+      <div><h3>강사·튜터라면</h3><p>각 편의 확인 문제 채점 기준과 Colab 과제 예시 답안을 <a href="answers.html">교육자용 정답 페이지</a>에 모아 두었습니다.</p></div>
       <div><h3>휴대폰도 괜찮아요</h3><p>작은 화면에서도 볼 수 있게 만들었습니다. 3-4 음성 편은 기기의 무음 모드를 끄면 소리가 납니다.</p></div>
     </div>
   </div>
@@ -186,7 +189,8 @@ footer b{color:var(--text)}
 <footer>
   <div class="wrap">
     <p><b>AI Model Review · 딥러닝 A to Z</b> — 글 안상선 ((주)M-Robo 대표).</p>
-    <p>3-6의 주가 예시는 교육용이며 투자 조언이 아닙니다.</p>
+    <p>3-6의 주가 예시는 교육용이며 투자 조언이 아닙니다. 강사용 자료는 <a href="answers.html">교육자용 정답</a>에 있습니다.</p>
+    <p class="cc"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ko" target="_blank" rel="license noopener" aria-label="크리에이티브 커먼즈 저작자표시-비영리 4.0 국제"><span class="ccb">cc</span><span class="ccb">BY</span><span class="ccb">NC</span></a> 이 저작물은 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ko" target="_blank" rel="license noopener">크리에이티브 커먼즈 저작자표시-비영리 4.0 국제 라이선스(CC BY-NC 4.0)</a>로 공개합니다. 비상업적 목적에 한해 자유롭게 공유하고 고쳐 쓸 수 있으며, <b>출처는 반드시 표기</b>해야 합니다. 출처 표기 예: 안상선, 「딥러닝 A to Z (AI Model Review)」, AI Model Review.</p>
   </div>
 </footer>
 
