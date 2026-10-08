@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><link rel="alternate" hreflang="ko" href="../answers.html"><link rel="alternate" hreflang="en" href="../en/answers.html"><link rel="alternate" hreflang="zh-CN" href="../zh/answers.html"><link rel="alternate" hreflang="ja" href="../ja/answers.html"><link rel="alternate" hreflang="uz" href="../uz/answers.html"><link rel="alternate" hreflang="ru" href="../ru/answers.html"><script>(function(){var L=["ko","en","zh","ja","uz","ru"],cur="en",f="answers.html",w=null,q=location.search.match(/[?&]lang=([a-z]{2})/);try{if(q&&L.indexOf(q[1])>=0)localStorage.setItem("amr-lang",q[1]);w=localStorage.getItem("amr-lang");}catch(e){}if(q&&L.indexOf(q[1])>=0)w=q[1];if(!w&&cur==="ko"){var n=navigator.languages||[navigator.language||""];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().slice(0,2);if(L.indexOf(c)>=0){w=c;break;}}}if(!w||w===cur||L.indexOf(w)<0||(cur!=="ko"&&!q))return;var up=cur==="ko"?"":"../";location.replace(up+(w==="ko"?"":w+"/")+f+location.hash);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Answer key for educators — Deep Learning A to Z | AI Model Review</title>
+<meta name="description" content="Scoring criteria for the check questions and sample answers for the Colab assignments of Deep Learning A to Z, parts 3-1 to 3-8.">
+<meta name="author" content="Sangsun Ahn">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" rel="stylesheet">
+<style>
+:root{--night:#1b1533;--deep:#120e24;--panel:#261e45;--line:#3d3170;--text:#efe9ff;--muted:#b5abd6;--violet:#b07cff;--pink:#ff86b8;--cyan:#57d0dc;--amber:#ffc65c;--pix:"Galmuri11","IBM Plex Sans","IBM Plex Sans KR",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--night);color:var(--text);font-family:"IBM Plex Sans","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.75}
+a{color:var(--cyan)}:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:var(--deep);border-bottom:4px solid var(--line);padding:36px 0 26px}
+header h1{font-family:var(--pix);font-weight:400;font-size:clamp(24px,3.4vw,34px);margin:0 0 6px;text-shadow:3px 3px 0 #5a2fa8}
+header p{margin:0;color:var(--muted)}
+.notice{margin-top:14px;background:var(--panel);border-left:4px solid var(--amber);padding:10px 14px;font-size:15px}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(27,21,51,.96);border-bottom:2px solid var(--line)}
+nav.top .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 20px}
+nav.top a{font-family:var(--pix);font-size:13px;text-decoration:none;color:var(--text);border:2px solid var(--line);padding:4px 8px;background:var(--panel)}
+nav.top a:hover{border-color:var(--cyan)} nav.top a.home{border-color:var(--violet)}
+.ans{padding:40px 0 10px;border-bottom:2px dashed var(--line)}
+.ans h2{font-family:var(--pix);font-weight:400;font-size:24px;margin:0 0 4px;display:flex;gap:12px;align-items:center}
+.ans h2 .no{border:3px solid var(--violet);padding:2px 8px;font-size:17px}
+.ans h3{font-size:18px;color:var(--amber);margin:26px 0 8px}
+.ans .back{margin:0 0 6px;font-size:14px}
+.ans li{margin:3px 0}.ans ul,.ans ol{padding-left:22px}
+.ans table{border-collapse:collapse;margin:10px 0;font-size:15px;display:block;overflow-x:auto}
+.ans th,.ans td{border:1px solid var(--line);padding:6px 10px;text-align:left}.ans th{background:var(--panel)}
+code{background:var(--panel);padding:1px 5px;border-radius:3px;font-size:.92em}
+footer{margin-top:40px;padding:26px 0 44px;background:var(--deep);border-top:4px solid var(--line);color:var(--muted);font-size:14px}
+footer b{color:var(--text)}
+</style>
+<style id="cc-style">.cc{margin-top:14px;padding-top:12px;border-top:1px solid rgba(181,171,214,.3);font-size:13px;line-height:1.7}.cc .ccb{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:0 5px;margin-right:4px;font-weight:700;font-size:11.5px;letter-spacing:.02em}.cc a{color:inherit}</style>
+<style>.lang-pick{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;font:600 14px/1.2 system-ui,sans-serif}.lang-pick>button{display:flex;gap:6px;align-items:center;background:#25283a;color:#eceaf3;border:1px solid #4a4f6e;border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);font:inherit}.lang-pick>button:hover{border-color:#f1b646}.lang-pick ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;background:#1c1e2d;border:1px solid #4a4f6e;border-radius:12px;min-width:150px;box-shadow:0 10px 30px rgba(0,0,0,.5)}.lang-pick ul[hidden]{display:none}.lang-pick a{display:block;padding:8px 12px;border-radius:8px;color:#eceaf3;text-decoration:none}.lang-pick a:hover,.lang-pick a:focus-visible{background:#25283a}.lang-pick a[aria-current]{color:#f1b646}@media print{.lang-pick{display:none}}</style></head>
+<body>
+<header><div class="wrap">
+  <h1>Answer key for educators</h1>
+  <p>Scoring criteria for the check questions and sample answers for the Colab assignments of Deep Learning A to Z, parts 3-1 to 3-8</p>
+  <p class="notice">If you are a learner, try the check questions in each part first, then look here. Assignment results can vary slightly by environment, so instructors should run the code once themselves before class to check the numbers.</p>
+</div></header>
+<nav class="top" aria-label="Jump to part"><div class="wrap"><a class="home" href="index.html">Home</a><a href="#a3-1">3-1 How AI Works</a><a href="#a3-2">3-2 Building Blocks of Neural Networks</a><a href="#a3-3">3-3 Images and CNNs</a><a href="#a3-4">3-4 Speech</a><a href="#a3-5">3-5 Text</a><a href="#a3-6">3-6 Time Series &amp; Stock Prices</a><a href="#a3-7">3-7 Sequence Models</a><a href="#a3-8">3-8 Attention &amp; Transformers</a></div></nav>
+<main class="wrap">
+<section class="ans" id="a3-1"><h2><span class="no">3-1</span>How AI Works</h2><p class="back"><a href="3-1_how_ai_works.html#teach">Back to the Educator Tips on the 3-1 page</a></p><h3>Check question answers and scoring criteria</h3>
+<p><strong>Q1. Using the word "feature," distinguish machine learning from deep learning in one sentence each.</strong></p>
+<ul>
+<li>Model answer: In machine learning (the traditional approach), people choose the features, and the machine learns the weight to multiply each feature by. In deep learning, the machine learns everything from the raw data up to the features.</li>
+<li>Scoring (3 points)<ul>
+<li>2 points: Distinguishes the two approaches by "who chooses the features."</li>
+<li>1 point: Mentions that deep learning is itself a branch of machine learning, or gives an example (3 weights vs. 1,741).</li>
+</ul>
+</li>
+<li>Deduction: Writing "in deep learning, people do nothing" loses 1 point. People still decide the data and the model structure.</li>
+</ul>
+<p><strong>Q2. The training data contains "lighting gets darker" scenes, so why does feature A still get those scenes wrong?</strong></p>
+<ul>
+<li>Model answer: Converted to feature A (area change, center shift), a lighting scene becomes a point with "a large increase in area and no change in center." This point lies on the same side as approaching, only farther out. A single straight line cannot separate it from approaching. The information needed to tell them apart was lost when the scene was reduced to 2 numbers, so adding more data does not fix it.</li>
+<li>Scoring (3 points)<ul>
+<li>1 point: On the feature plane, lighting scenes lie on the approaching side.</li>
+<li>1 point: A single straight line (a linear classifier) cannot separate them.</li>
+<li>1 point: The information was already lost at the feature-making stage. The fix is to change the features, not to add data.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Q3. Which human sense goes straight to the cerebral cortex without passing through the thalamus?</strong></p>
+<ul>
+<li>Answer: Smell (olfactory epithelium → olfactory bulb → piriform cortex). 1 point.</li>
+<li>Good to add: From the piriform cortex to the orbitofrontal cortex, there is also a route that passes through the thalamus (Sela et al., 2009).</li>
+</ul>
+<p><strong>Q4. What do the fruit fly's LPLC2 and feature B from Section 3 have in common?</strong></p>
+<ul>
+<li>Model answer: Both distinguish "an object growing in all directions" from "simply getting darker." LPLC2 does not respond to darkening without motion (Klapoetke et al., 2017). The difference is how they came to be. Feature B was designed by people, while LPLC2 is a circuit formed during development.</li>
+<li>Scoring (2 points): 1 point for the similarity, 1 point for the difference.</li>
+</ul>
+<p><strong>Q5. What is wrong with the judgment "We got 100% accuracy on the training data, so it will work well in the field too"?</strong></p>
+<ul>
+<li>Model answer: The model can fail when it meets situations that were not in the training data. "No lighting changes" in Section 4 is an example. Training loss went down to 0.011, yet the model got 0 out of 20 lighting scenes right. It even said "avoid" with probability 0.99 for those scenes. You should measure skill on test data the model has never seen, and check whether the situations that will occur in the field are included in the training data.</li>
+<li>Scoring (3 points)<ul>
+<li>1 point: Distinguishes training performance from real-world performance.</li>
+<li>1 point: Identifies the cause: situations not present in the data.</li>
+<li>1 point: Suggests at least one countermeasure (test data, collecting field data, monitoring).</li>
+</ul>
+</li>
+</ul>
+<h3>Sample answers for the Colab assignments</h3>
+<p><strong>Basic assignment: add "approaching at an angle"</strong></p>
+<ul>
+<li>Add a new kind of scene to <code>make_episode</code> in Code 1. Example: the shadow grows while its center moves 3–5 cells. Set the label to 1 (must avoid).</li>
+<li>Expected results<ul>
+<li>Feature A: When the center shift is large, it is classified as "passing by." Accuracy is likely to drop.</li>
+<li>Feature B: The edge gets longer, so it is mostly right.</li>
+<li>Neural network: If these scenes are in the training data it gets them right; if not, it gets some wrong.</li>
+</ul>
+</li>
+<li>Scoring points<ul>
+<li>There is a results table.</li>
+<li>Explains the reason in terms of "the information the features hold" and "the situations the data holds."</li>
+<li>The actual numbers vary with the seed, so judge the interpretation, not the numbers themselves.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Challenge assignment: my own work data</strong></p>
+<ul>
+<li>A good answer has the following.<ul>
+<li>Three features and the reasoning behind them (domain knowledge).</li>
+<li>A graph comparing results by number of training examples.</li>
+<li>A conclusion based on data size, such as "the feature approach when examples are few, the neural network approach when there are enough."</li>
+<li>The test data was used only once, at the end.</li>
+</ul>
+</li>
+<li>Common mistakes<ul>
+<li>Mixing test data information into the feature calculation (data leakage).</li>
+<li>Looking only at accuracy and not at precision and recall (for imbalanced data; 3-2 Section 9).</li>
+</ul>
+</li>
+</ul>
+<h3>Frequently asked questions in class</h3>
+<ul>
+<li><strong>"So is deep learning worse than machine learning?"</strong><ul>
+<li>No. It depends on the problem and the amount of data.</li>
+<li>For data like photos, sounds and text, where features are hard to put into words, deep learning is much stronger.</li>
+<li>The scenes on this page were made simple on purpose, so people could easily think of good features.</li>
+</ul>
+</li>
+<li><strong>"Does the human brain do backpropagation too?"</strong><ul>
+<li>This has not been confirmed. Hypotheses that the brain could do something similar by other means are being studied (Lillicrap et al., 2020).</li>
+</ul>
+</li>
+<li><strong>"Why are the browser numbers slightly different from the Colab numbers?"</strong><ul>
+<li>The two environments use different random number generators, so the scenes differ slightly.</li>
+<li>The accuracy of feature A is 86.9% in the browser (it also misses one approaching scene) and 87.5% in Colab.</li>
+<li>The conclusion is the same. In both environments, every lighting scene is wrong.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-2"><h2><span class="no">3-2</span>Building Blocks of Neural Networks</h2><p class="back"><a href="3-2_building_blocks.html#teach">Back to the Educator Tips on the 3-2 page</a></p><h3>Check question answers and scoring criteria</h3>
+<p><strong>Q1. If you stack 10 hidden layers in a neural network without activation functions, what kind of boundary can it draw?</strong> (2 points)</p>
+<ul>
+<li>Answer: Only a single straight line (a plane in higher dimensions).</li>
+<li>Scoring: 1 point for the conclusion. 1 point for the reason: combining several linear transformations still gives one linear transformation (W₂W₁x = Wx).</li>
+</ul>
+<p><strong>Q2. Why does using ReLU instead of sigmoid reduce vanishing gradients?</strong> (2 points)</p>
+<ul>
+<li>Answer: The sigmoid's gradient is at most 0.25, so it shrinks quickly as it is multiplied layer by layer. ReLU's gradient is 1 in the positive range, so it does not shrink as it flows backward.</li>
+<li>Scoring: 1 point for comparing 0.25 and 1, 1 point for explaining that "it shrinks because it is multiplied." It is good to add that the gradient is 0 in the negative range (dead neurons).</li>
+</ul>
+<p><strong>Q3. If the label is 1 and the prediction is 0.41, what are the MSE loss and ∂L/∂y?</strong> (2 points)</p>
+<ul>
+<li>Answer: L = (1 − 0.41)² = 0.3481 ≈ 0.35, ∂L/∂y = −2 × (1 − 0.41) = −1.18.</li>
+<li>Scoring: 1 point each. ∂L/∂y must have the correct sign.</li>
+</ul>
+<p><strong>Q4. Training loss keeps going down, but validation loss starts rising at some point. What is happening, and what should you do?</strong> (3 points)</p>
+<ul>
+<li>Answer: Overfitting.</li>
+<li>Scoring: 1 point for diagnosing overfitting, 1 point for early stopping (using the model from the point where validation loss was lowest), 1 point for at least one of dropout, weight decay, or more data.</li>
+</ul>
+<p><strong>Q5. In an inspection with a 10% defect rate, what are the accuracy and recall of a model that answers "all normal"?</strong> (2 points)</p>
+<ul>
+<li>Answer: Accuracy 90%, recall 0%.</li>
+<li>Scoring: 1 point each. It is good to add "with imbalanced data, you must not look at accuracy alone."</li>
+</ul>
+<h3>Sample answers for the Colab assignments</h3>
+<p><strong>Basic assignment: tanh → ReLU, 4, 16 and 64 hidden neurons</strong></p>
+<ul>
+<li>Two lines need to change. Change the activation function to max(0, z) and its derivative to "1 if z &gt; 0, else 0."</li>
+<li>Run the code and put the results in a table. Adding neurons usually raises training accuracy, but from some point validation accuracy may stop rising or even fall.</li>
+<li>Scoring points: Check whether the setting was chosen by validation accuracy (choosing by training accuracy loses points) and whether the reason is explained in connection with overfitting.</li>
+</ul>
+<p><strong>Challenge assignment: 6:2:2 evaluation on my own work data</strong></p>
+<ul>
+<li>Train only on the training data, choose settings and the threshold with the validation data, and use the test data only once, at the end.</li>
+<li>Whether a threshold of 0.5 is right depends on business costs. For example, if missing a defect is costly, lower the threshold to raise recall, and also report the resulting increase in false alarms (lower precision).</li>
+<li>Scoring points: Check whether all three metrics are reported and whether the reasoning for the threshold fits the business situation. Make sure data containing personal information was either not used or was anonymized.</li>
+</ul></section>
+<section class="ans" id="a3-3"><h2><span class="no">3-3</span>Images and CNNs</h2><p class="back"><a href="3-3_image_cnn.html#teach">Back to the Educator Tips on the 3-3 page</a></p><h3>Check question answers and scoring criteria</h3>
+<p><strong>Q1. If you feed a 224×224 color photo into an MLP with 1,000 hidden neurons, how many weights does the first layer have? (excluding biases)</strong></p>
+<ul>
+<li>Answer: 224 × 224 × 3 = 150,528, × 1,000 = <strong>150,528,000</strong> (about 150 million).</li>
+<li>Good to add: A convolution layer with 64 3×3 color filters has 3 × 3 × 3 × 64 = 1,728 (1,792 including biases).</li>
+<li>Scoring (2 points): 1 point for the formula, 1 point for the answer. Leaving out the 3 channels loses 1 point.</li>
+</ul>
+<p><strong>Q2. If you apply a 3×3 filter to a 6×6 input with no padding and a stride of 1, what is the output size?</strong></p>
+<ul>
+<li>Answer: (6 − 3 + 1) × (6 − 3 + 1) = <strong>4×4</strong>. 1 point.</li>
+</ul>
+<p><strong>Q3. Show by calculation why the output is −3 when the vertical edge filter from Section 5 is placed at the top-left position.</strong></p>
+<ul>
+<li>Model answer: The second row of the overlapping patch is [0, 3, 3], and each row of the filter is [1, 0, −1]. 0×1 + 3×0 + 3×(−1) = −3. The first and third rows are all 0.</li>
+<li>Scoring (2 points): 1 point for picking the correct overlapping patch, 1 point for correctly multiplying cell by cell and adding.</li>
+</ul>
+<p><strong>Q4. What are the max pooling and average pooling values of the 2×2 window [6, 3, 0, 3]?</strong></p>
+<ul>
+<li>Answer: Max <strong>6</strong>, average (6 + 3 + 0 + 3) / 4 = <strong>3</strong>. 1 point each.</li>
+</ul>
+<p><strong>Q5. If you shuffle the pixels with a fixed rule and train from scratch, which drops more, the MLP or the CNN, and why?</strong></p>
+<ul>
+<li>Model answer: The CNN drops more.<ul>
+<li>The CNN builds the assumption "nearby pixels are related" into its structure (3×3 filters, pooling). Shuffling breaks this assumption.</li>
+<li>The MLP never used the positional relationships between pixels in the first place, so it stays about the same.</li>
+<li>Actual results: In the browser, MLP 92.7% → 91.3%, CNN 78.7% → 67.3%. Colab averages over 3 seeds: MLP 88.4% → 90.0%, CNN 80.2% → 65.8%.</li>
+</ul>
+</li>
+<li>Scoring (3 points)<ul>
+<li>1 point: The result (the CNN drops more).</li>
+<li>1 point: Explains the CNN's assumption (neighbor relationships).</li>
+<li>1 point: States the condition precisely (shuffled with a fixed rule and <strong>trained from scratch</strong>). Do not give this point for "feeding shuffled images into a trained model."</li>
+</ul>
+</li>
+</ul>
+<h3>Sample answers for the Colab assignments</h3>
+<p><strong>Basic assignment: add a diagonal filter</strong></p>
+<ul>
+<li>Example filter: <code>[[0,1,1],[-1,0,1],[-1,-1,0]]</code> (a diagonal boundary, bright at the top right and dark at the bottom left).</li>
+<li>
+<p>The 4×4 output computed with Code 1:
+  <code>3   0   0  -6
+   6   6   6   0
+   0   0   0   0
+   3   0  -3   0</code></p>
+</li>
+<li>
+<p>The maximum is <strong>6</strong>, appearing in row 2, columns 1, 2 and 3. This is not the slanted stroke but <strong>the boundary just below the top bar of the 7</strong>. The filter responds to places that are "bright above and to the right, dark below and to the left," so it also responds strongly to horizontal boundaries.</p>
+</li>
+<li>When the expectation (the diagonal stroke) and the actual result differ like this, a good answer explains why using the numbers as evidence. The lesson of this assignment is that guessing where a filter responds from its name alone can be wrong.</li>
+<li>Scoring points<ul>
+<li>Connects the arrangement of the filter's numbers to where it responds.</li>
+<li>Quotes numbers computed with the code.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Challenge assignment: data augmentation</strong></p>
+<ul>
+<li>Expected trend<ul>
+<li>Mixing images shifted by 1–2 cells into the training images raises both models' accuracy at 1–2 cell shifts.</li>
+<li>The MLP also improves a lot, because it memorizes the shifted positions from the data.</li>
+<li>At a 3-cell shift, which was not in training, the CNN is still expected to drop less. Judge by the actual numbers from the student's own run.</li>
+</ul>
+</li>
+<li>Example of a good conclusion: "Structure (weight sharing, pooling) makes a model less sensitive to small shifts even without data, while augmentation only makes it robust to the range of shifts it was shown. In practice, both are used together."</li>
+</ul>
+<h3>Frequently asked questions in class</h3>
+<ul>
+<li><strong>"The CNN scores lower than the MLP on centered images?"</strong><ul>
+<li>Right. When training and test positions are the same and the data is small, as on this page, the MLP can win. The CNN has 4.5 times fewer parameters.</li>
+<li>The CNN's strengths are fewer parameters and robustness to shifts. It pays off most on data where positions vary, like real photos.</li>
+</ul>
+</li>
+<li><strong>"Doesn't a CNN recognize things the same way even when their position changes?"</strong><ul>
+<li>No. Shift by 2 cells and the CNN also drops, 78.7% → 69.3% (in the browser).</li>
+<li>Even large CNNs can change their answer when the input shifts by a few pixels (Azulay &amp; Weiss, 2019). "Relatively less sensitive" is the accurate statement.</li>
+</ul>
+</li>
+<li><strong>"Why is the MLP higher at a 1-cell shift?"</strong><ul>
+<li>It is noise from a small experiment: one seed and 150 test images.</li>
+<li>In the Colab averages over 3 seeds, the CNN (64.2%) beat the MLP (54.7%) at 1 cell too. Teach along with this that conclusions should be drawn from repeated runs.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-4"><h2><span class="no">3-4</span>Speech</h2><p class="back"><a href="3-4_speech.html#teach">Back to the Educator Tips on the 3-4 page</a></p><p><strong>Check questions</strong></p>
+<ul>
+<li>Q1 (1 point): 4,000 Hz.</li>
+<li>Q2 (1 point): 3 Hz.</li>
+<li>Q3 (2 points): About 48 dB (theoretical 49.92 → 98.08 dB). 1 point for the formula, 1 point for the value.</li>
+<li>Q4 (2 points): 98 frames. (8,000 − 200) ÷ 80 = 97.5 → round down to 97, + 1 = 98. Answering "97" gets 1 point.</li>
+<li>Q5 (2 points): 1,960, about one quarter.</li>
+</ul>
+<p><strong>Sample assignment answers</strong></p>
+<ul>
+<li>Basic (NMEL 40, FRAME 400): The matrix becomes (fewer frames) × 40. A longer window gives finer frequency detail, but the number of frames drops and changes over time get blurred.<ul>
+<li>Scoring: Check whether the change in the number of frames was confirmed by calculation.</li>
+</ul>
+</li>
+<li>Challenge (your own recording): Even if you record the same sound twice, the correlation is not 1. Distance, noise, volume and speaking speed make the difference.<ul>
+<li>Check that consent for personal information was obtained.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-5"><h2><span class="no">3-5</span>Text</h2><p class="back"><a href="3-5_text.html#teach">Back to the Educator Tips on the 3-5 page</a></p><p><strong>Check questions</strong></p>
+<ul>
+<li>Q1 (1 point): 0xAC01 ("각").</li>
+<li>Q2 (2 points): 14 bytes = 9 + 1 + 4.</li>
+<li>Q3 (2 points): Using word frequencies as weights, count how often each pair of adjacent pieces appears, and merge the most frequent pair.</li>
+<li>Q4 (2 points): Word-level gives "모름" (unknown); BPE gives ["초파리", "들", "이"].</li>
+<li>Q5 (2 points): Both are {dog:1, bites:1, man:1}. Position information is needed.</li>
+</ul>
+<p><strong>Sample assignment answers</strong></p>
+<ul>
+<li>Basic (adding butterfly sentences): "나비는" (butterfly) is expected to move closer to words like "꿀벌은" (honeybee) and "초파리는" (fruit fly), which appear in the same position and with the same words (꽃을, 날개가).<ul>
+<li>Check the values by running the code. Instructors should run it once before class.</li>
+</ul>
+</li>
+<li>Challenge (number of merges): More merges make the vocabulary larger and reduce the number of tokens per sentence.<ul>
+<li>If it is too large, rare tokens increase and there is not enough training material for them.</li>
+<li>If it is too small, sentences get longer and computation increases.</li>
+<li>Check whether the evidence is presented in a table.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-6"><h2><span class="no">3-6</span>Time Series &amp; Stock Prices</h2><p class="back"><a href="3-6_timeseries_stock.html#teach">Back to the Educator Tips on the 3-6 page</a></p><p><strong>Check questions</strong></p>
+<ul>
+<li>Q1 (1 point): 500 pairs.</li>
+<li>Q2 (2 points): 10 times. The first training uses 300 pairs, the last 480 pairs.</li>
+<li>Q3 (1 point): About 4 percentage points.</li>
+<li>Q4 (2 points): Selection bias and overfitting. Use the test period only once, at the end.</li>
+<li>Q5 (3 points): Reports the results as numbers, as they are (1 point); states the data and setting conditions (1 point); presents the limits of generalization and the next experiment (1 point).</li>
+</ul>
+<p><strong>Sample assignment answers</strong></p>
+<ul>
+<li>Basic (normalizing over the whole period): The numbers change slightly. The direction depends on the data.<ul>
+<li>The key point is to explain that, whether results get better or worse, "the evaluation used future information, so it cannot be trusted."</li>
+</ul>
+</li>
+<li>Challenge (predicting the size of changes): In Section 2, the autocorrelation of absolute returns was larger than that of returns (4/10 vs. 0/10). So you can expect relatively more room for improvement over the baseline.<ul>
+<li>Have students run it and report actual results with 3 or more seeds.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note for running the class.</strong> At the start and end of class, state clearly that "this is an educational example, not investment advice." If a student asks for buy or sell judgments on a specific stock, tell them it is outside the scope of this page.</p></section>
+<section class="ans" id="a3-7"><h2><span class="no">3-7</span>Sequence Models</h2><p class="back"><a href="3-7_sequence_models.html#teach">Back to the Educator Tips on the 3-7 page</a></p><h3>Check question answers and scoring criteria</h3>
+<p><strong>Q1. If you average a sequence and feed it into a feedforward neural network, what information is lost?</strong></p>
+<ul>
+<li>Model answer: The order is lost. 100 → 110 → 120 and 120 → 110 → 100 both have an average of 110.</li>
+<li>Scoring (2 points): 1 point for saying "order," 1 point for giving an example.</li>
+</ul>
+<p><strong>Q2. If you feed 1, 0, 0 into h_t = tanh(x_t + 0.9·h_(t−1)), what are h_1 and h_2?</strong></p>
+<ul>
+<li>Answer: h_1 = tanh(1) ≈ <strong>0.762</strong>, h_2 = tanh(0.686) ≈ <strong>0.595</strong>.</li>
+<li>Scoring (2 points): 1 point each. Accept rounding within ±0.002.</li>
+</ul>
+<p><strong>Q3. If f = σ(5) ≈ 0.9933 and the input gate is fully closed, how many times the initial value is the cell state at step 20?</strong></p>
+<ul>
+<li>Answer: 0.9933¹⁹ ≈ <strong>0.880 times</strong>.</li>
+<li>Good to add: The actual value in Section 5 (0.988 → 0.864, about 0.875 times) is slightly smaller because the input gate is open by 0.007, letting the distractor signals (ten −1s and nine +1s) leak in.</li>
+<li>Scoring (2 points): 1 point for the correct number of multiplications (19), 1 point for the correct value. Writing the 20th power (0.874) gets only 1 point.</li>
+</ul>
+<p><strong>Q4. With 16 hidden units and 1 input, how many parameters do the recurrent layers of SimpleRNN, LSTM and GRU (textbook formula) have?</strong></p>
+<ul>
+<li>Answer: One set = 16 × 17 + 16 = 288.<ul>
+<li>SimpleRNN: 288</li>
+<li>LSTM: 4 × 288 = 1,152</li>
+<li>GRU (textbook formula): 3 × 288 = 864</li>
+</ul>
+</li>
+<li>Good to add: The default Keras GRU adds 48 more biases for 912. This matches the output of Code 2.</li>
+<li>Scoring (3 points): 1 point each.</li>
+</ul>
+<p><strong>Q5. An LSTM failed at T = 100. Can you conclude that "LSTMs cannot hold long memories"?</strong></p>
+<ul>
+<li>Model answer: No.<ul>
+<li>With suitably chosen weights, as in Section 5, an LSTM can hold long memories.</li>
+<li>The failure means that gradient descent did not find those weights within 30 epochs.</li>
+<li>You can only draw a conclusion after changing training time, learning rate and data size, and repeating the experiment with several seeds.</li>
+</ul>
+</li>
+<li>Scoring (3 points)<ul>
+<li>1 point: Distinguishes the capacity of the architecture from the outcome of training.</li>
+<li>1 point: Suggests alternative experiments.</li>
+<li>1 point: Mentions the need for repeated (multi-seed) experiments.</li>
+</ul>
+</li>
+</ul>
+<h3>Sample answers for the Colab assignments</h3>
+<p><strong>Basic assignment: keep the input gate always open (i = σ(5))</strong></p>
+<ul>
+<li>Expected result: At every step, 0.993 × g(±0.995) is added to the cell state. The cell state swings widely following the latest distractor signals, and even if you flip the first signal, the value 20 steps later ends up almost the same.</li>
+<li>Students must quote values computed with the code. Instructors should run it once themselves before class to check the numbers.</li>
+<li>Example of a good conclusion: "The input gate decides 'when to write.' If it writes at any time, old signals get overwritten by new ones."</li>
+</ul>
+<p><strong>Challenge assignment: turn the T = 100 failure into success</strong></p>
+<ul>
+<li>Things worth trying<ul>
+<li>More epochs (e.g. 100 or more)</li>
+<li>A different learning rate (0.001, 0.01)</li>
+<li>More training data</li>
+<li>Training on short sequences first and gradually lengthening them (curriculum learning)</li>
+<li>A different hidden size</li>
+</ul>
+</li>
+<li>You only know the results by running it. Have students make a table with 3 or more seeds, and if success or failure depends on the seed, report that as a result too.</li>
+<li>Scoring points: Check whether changes were compared one at a time. Also check that results were not cherry-picked.</li>
+</ul>
+<h3>Frequently asked questions in class</h3>
+<ul>
+<li><strong>"Textbooks say RNNs fail on long sequences, so why did SimpleRNN succeed at T = 50?"</strong><ul>
+<li>The task is relatively simple (remember only the first step), and depending on the initialization, memory can last quite a while. Keras recurrent layers initialize the recurrent weights as an orthogonal matrix by default.</li>
+<li>What matters is not forcing experimental results to match textbook statements, but stating the conditions and reporting the results as they are.</li>
+</ul>
+</li>
+<li><strong>"Why did GRU fail at T = 50?"</strong><ul>
+<li>With this setting (30 epochs, learning rate 0.005), both seeds stayed at chance level. The cause cannot be determined from this experiment alone. Connect it to the challenge assignment.</li>
+</ul>
+</li>
+<li><strong>"Did the LSTM have a forget gate from the start?"</strong><ul>
+<li>No. It was not in the original 1997 paper; Gers et al. added it in a 2000 paper (presented at a conference in 1999).</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-8"><h2><span class="no">3-8</span>Attention &amp; Transformers</h2><p class="back"><a href="3-8_attention_transformer.html#teach">Back to the Educator Tips on the 3-8 page</a></p><h3>Check question answers and scoring criteria</h3>
+<p><strong>Q1. With q = [2, 0.4], k = [2, 0] and d_k = 2, what is the score q·k / √d_k?</strong></p>
+<ul>
+<li>Answer: q·k = 4, 4 / √2 ≈ <strong>2.828</strong>.</li>
+<li>Scoring (2 points): 1 point for the dot product, 1 point for the division.</li>
+</ul>
+<p><strong>Q2. What is the softmax of the scores [1.98, 1.98, 2.772], and the result of mixing V = [10,0], [0,10], [6,6]?</strong></p>
+<ul>
+<li>Answer: Attention ≈ [0.238, 0.238, 0.525], result ≈ <strong>[5.53, 5.53]</strong>. The output of Code 1 is [5.525, 5.525].</li>
+<li>Scoring (3 points): 1 point for the softmax, 1 point for the weighted-sum formula, 1 point for the value. Accept ±0.01.</li>
+</ul>
+<p><strong>Q3. Using only self-attention without positional encoding, what happens to each word's output when the word order is shuffled?</strong></p>
+<ul>
+<li>Model answer: It stays the same. Each word's output is determined only by comparisons with all the other words, and the set of words compared is the same regardless of order. In Code 1, the difference was 1e-16, i.e. at the level of rounding error.</li>
+<li>Scoring (2 points): 1 point for the result, 1 point for the reason.</li>
+</ul>
+<p><strong>Q4. How many parameters does a multi-head attention layer with d = 512 have, and what changes if you switch to 16 heads?</strong></p>
+<ul>
+<li>Answer: 4 × 512² + 4 × 512 = <strong>1,050,624</strong>. It stays the same when the number of heads changes (only the head width goes from 64 → 32).</li>
+<li>Scoring (2 points): 1 point for the value, 1 point for "does not change" and the reason.</li>
+</ul>
+<p><strong>Q5. If the length goes from 4,096 → 8,192, how does the number of attention scores change?</strong></p>
+<ul>
+<li>Answer: <strong>4 times</strong> (16,777,216 → 67,108,864). 1 point.</li>
+</ul>
+<h3>Sample answers for the Colab assignments</h3>
+<p><strong>Basic assignment: don't divide by √d_k</strong></p>
+<ul>
+<li>In the library example, not dividing makes the scores √2 times larger, so attention leans further toward one side.</li>
+<li>Make the vectors 10 times larger and the scores become 100 times larger, so softmax gives almost 1 to a single position. Then the gradients for the other positions get close to 0, making training difficult.</li>
+<li>Have students quote numbers they computed with the code.</li>
+</ul>
+<p><strong>Challenge assignment: remove the positional embedding</strong></p>
+<ul>
+<li>Expected: Without position information, the first position cannot be distinguished from the others. So the model cannot single out the first position, and accuracy is expected to approach chance level. "Attention given to the first position" will also likely drop to around 1/T.</li>
+<li>Have students confirm the actual results by running it. Instructors should run it once themselves before class.</li>
+<li>Scoring points: Check whether the explanation connects to "shuffling the order gives the same result" from Section 6.</li>
+</ul>
+<h3>Frequently asked questions in class</h3>
+<ul>
+<li><strong>"Why are the LSTM numbers different from 3-7?"</strong><ul>
+<li>Code 2 in 3-8 rebuilt the model with a fixed input length (3-7 allowed any length). So the initial computation graph and random number consumption differ slightly.</li>
+<li>The T = 100 results are 48.9 / 47.2% in 3-7 and 50.6 / 57.4% in 3-8. The conclusion is the same: both are at chance level.</li>
+</ul>
+</li>
+<li><strong>"The Transformer won, so are LSTMs no longer used?"</strong><ul>
+<li>In this task the answer is "one value at the first position," which especially favors attention.</li>
+<li>Recurrent models are still used for real-time step-by-step processing or when data is scarce (3-7 Section 9).</li>
+</ul>
+</li>
+<li><strong>"How many parameters does the base model of the original paper have?"</strong><ul>
+<li>This page calculates and shows one block (3,152,384) by formula.</li>
+</ul>
+</li>
+</ul></section>
+</main>
+<footer><div class="wrap">
+  <p><b>Deep Learning A to Z · Answer key for educators</b> — Written by Sangsun Ahn (CEO, M-Robo Inc.).</p>
+  <p class="cc"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" target="_blank" rel="license noopener" aria-label="Creative Commons Attribution-NonCommercial 4.0 International"><span class="ccb">cc</span><span class="ccb">BY</span><span class="ccb">NC</span></a> This work is published under the <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" target="_blank" rel="license noopener">Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)</a>. You may freely share and adapt it for non-commercial purposes only, and <b>you must give credit</b>. Example credit: Sangsun Ahn, “Deep Learning A to Z · Answer key for educators,” AI Model Review.</p>
+</div></footer>
+<script>
+/* ══ 페이지 안 바로가기: 해시 이동 대신 스크립트로 스크롤 (GitHub 미리보기·iframe에서도 작동) ══ */
+(function(){
+  function go(id){var el=document.getElementById(id); if(!el) return false;
+    var nav=document.querySelector('nav.top'), off=(nav?nav.offsetHeight:0)+8;
+    var y=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-off;
+    var smooth=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    try{window.scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});}catch(e){window.scrollTo(0,Math.max(0,y));}
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+    if(el.tabIndex<0&&!/^(A|BUTTON|INPUT|SECTION|HEADER)$/.test(el.tagName)){} return true;}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=decodeURIComponent(a.getAttribute('href').slice(1)); if(!id) return;
+    if(go(id)) e.preventDefault();});
+  window.addEventListener('load',function(){ if(location.hash){var id=decodeURIComponent(location.hash.slice(1)); setTimeout(function(){go(id);},60);}});
+})();
+</script>
+<div class="lang-pick" id="langPick"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language: English"><span aria-hidden="true">🌐</span>English</button><ul hidden><li><a href="../answers.html" hreflang="ko" lang="ko" data-l="ko">한국어</a></li><li><a href="../en/answers.html" hreflang="en" lang="en" data-l="en" aria-current="true">English</a></li><li><a href="../zh/answers.html" hreflang="zh-CN" lang="zh-CN" data-l="zh">中文</a></li><li><a href="../ja/answers.html" hreflang="ja" lang="ja" data-l="ja">日本語</a></li><li><a href="../uz/answers.html" hreflang="uz" lang="uz" data-l="uz">Oʻzbekcha</a></li><li><a href="../ru/answers.html" hreflang="ru" lang="ru" data-l="ru">Русский</a></li></ul></div><script>(function(){var p=document.getElementById("langPick"),b=p.querySelector("button"),u=p.querySelector("ul");function t(o){u.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");}b.addEventListener("click",function(e){e.stopPropagation();t(u.hidden);});document.addEventListener("click",function(){t(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});u.addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;try{localStorage.setItem("amr-lang",a.getAttribute("data-l"));}catch(x){}if(location.hash){e.preventDefault();location.href=a.getAttribute("href")+location.hash;}});})();</script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8"><link rel="alternate" hreflang="ko" href="../answers.html"><link rel="alternate" hreflang="en" href="../en/answers.html"><link rel="alternate" hreflang="zh-CN" href="../zh/answers.html"><link rel="alternate" hreflang="ja" href="../ja/answers.html"><link rel="alternate" hreflang="uz" href="../uz/answers.html"><link rel="alternate" hreflang="ru" href="../ru/answers.html"><script>(function(){var L=["ko","en","zh","ja","uz","ru"],cur="uz",f="answers.html",w=null,q=location.search.match(/[?&]lang=([a-z]{2})/);try{if(q&&L.indexOf(q[1])>=0)localStorage.setItem("amr-lang",q[1]);w=localStorage.getItem("amr-lang");}catch(e){}if(q&&L.indexOf(q[1])>=0)w=q[1];if(!w&&cur==="ko"){var n=navigator.languages||[navigator.language||""];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().slice(0,2);if(L.indexOf(c)>=0){w=c;break;}}}if(!w||w===cur||L.indexOf(w)<0||(cur!=="ko"&&!q))return;var up=cur==="ko"?"":"../";location.replace(up+(w==="ko"?"":w+"/")+f+location.hash);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oʻqituvchilar uchun javoblar — Chuqur oʻrganish: A dan Z gacha | AI Model Review</title>
+<meta name="description" content="Chuqur oʻrganish: A dan Z gacha 3-1 ~ 3-8 qismlaridagi tekshiruv savollarini baholash mezonlari va Colab topshiriqlari uchun namunaviy javoblar.">
+<meta name="author" content="Sangsun Ahn">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" rel="stylesheet">
+<style>
+:root{--night:#1b1533;--deep:#120e24;--panel:#261e45;--line:#3d3170;--text:#efe9ff;--muted:#b5abd6;--violet:#b07cff;--pink:#ff86b8;--cyan:#57d0dc;--amber:#ffc65c;--pix:"Galmuri11","IBM Plex Sans","IBM Plex Sans KR",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--night);color:var(--text);font-family:"IBM Plex Sans","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.75}
+a{color:var(--cyan)}:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:var(--deep);border-bottom:4px solid var(--line);padding:36px 0 26px}
+header h1{font-family:var(--pix);font-weight:400;font-size:clamp(24px,3.4vw,34px);margin:0 0 6px;text-shadow:3px 3px 0 #5a2fa8}
+header p{margin:0;color:var(--muted)}
+.notice{margin-top:14px;background:var(--panel);border-left:4px solid var(--amber);padding:10px 14px;font-size:15px}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(27,21,51,.96);border-bottom:2px solid var(--line)}
+nav.top .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 20px}
+nav.top a{font-family:var(--pix);font-size:13px;text-decoration:none;color:var(--text);border:2px solid var(--line);padding:4px 8px;background:var(--panel)}
+nav.top a:hover{border-color:var(--cyan)} nav.top a.home{border-color:var(--violet)}
+.ans{padding:40px 0 10px;border-bottom:2px dashed var(--line)}
+.ans h2{font-family:var(--pix);font-weight:400;font-size:24px;margin:0 0 4px;display:flex;gap:12px;align-items:center}
+.ans h2 .no{border:3px solid var(--violet);padding:2px 8px;font-size:17px}
+.ans h3{font-size:18px;color:var(--amber);margin:26px 0 8px}
+.ans .back{margin:0 0 6px;font-size:14px}
+.ans li{margin:3px 0}.ans ul,.ans ol{padding-left:22px}
+.ans table{border-collapse:collapse;margin:10px 0;font-size:15px;display:block;overflow-x:auto}
+.ans th,.ans td{border:1px solid var(--line);padding:6px 10px;text-align:left}.ans th{background:var(--panel)}
+code{background:var(--panel);padding:1px 5px;border-radius:3px;font-size:.92em}
+footer{margin-top:40px;padding:26px 0 44px;background:var(--deep);border-top:4px solid var(--line);color:var(--muted);font-size:14px}
+footer b{color:var(--text)}
+</style>
+<style id="cc-style">.cc{margin-top:14px;padding-top:12px;border-top:1px solid rgba(181,171,214,.3);font-size:13px;line-height:1.7}.cc .ccb{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:0 5px;margin-right:4px;font-weight:700;font-size:11.5px;letter-spacing:.02em}.cc a{color:inherit}</style>
+<style>.lang-pick{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;font:600 14px/1.2 system-ui,sans-serif}.lang-pick>button{display:flex;gap:6px;align-items:center;background:#25283a;color:#eceaf3;border:1px solid #4a4f6e;border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);font:inherit}.lang-pick>button:hover{border-color:#f1b646}.lang-pick ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;background:#1c1e2d;border:1px solid #4a4f6e;border-radius:12px;min-width:150px;box-shadow:0 10px 30px rgba(0,0,0,.5)}.lang-pick ul[hidden]{display:none}.lang-pick a{display:block;padding:8px 12px;border-radius:8px;color:#eceaf3;text-decoration:none}.lang-pick a:hover,.lang-pick a:focus-visible{background:#25283a}.lang-pick a[aria-current]{color:#f1b646}@media print{.lang-pick{display:none}}</style></head>
+<body>
+<header><div class="wrap">
+  <h1>Oʻqituvchilar uchun javoblar</h1>
+  <p>Chuqur oʻrganish: A dan Z gacha 3-1 ~ 3-8 qismlaridagi tekshiruv savollarini baholash mezonlari va Colab topshiriqlari uchun namunaviy javoblar</p>
+  <p class="notice">Agar siz oʻquvchi boʻlsangiz, avval har bir qismdagi tekshiruv savollarini oʻzingiz yechib koʻring, keyin shu yerdan tekshiring. Topshiriqlarning natijalari muhitga qarab biroz farq qilishi mumkin, shuning uchun oʻqituvchi darsdan oldin kodni bir marta oʻzi ishga tushirib, sonlarni tekshiradi.</p>
+</div></header>
+<nav class="top" aria-label="Qismlarga tezkor oʻtish"><div class="wrap"><a class="home" href="index.html">Bosh sahifa</a><a href="#a3-1">3-1 AI qanday ishlaydi</a><a href="#a3-2">3-2 Neyron tarmoq qismlari</a><a href="#a3-3">3-3 Tasvirlar va CNN</a><a href="#a3-4">3-4 Nutq</a><a href="#a3-5">3-5 Matn</a><a href="#a3-6">3-6 Vaqt qatorlari va aksiya narxlari</a><a href="#a3-7">3-7 Ketma-ketlik modellari</a><a href="#a3-8">3-8 Attention va Transformer</a></div></nav>
+<main class="wrap">
+<section class="ans" id="a3-1"><h2><span class="no">3-1</span>AI qanday ishlaydi</h2><p class="back"><a href="3-1_how_ai_works.html#teach">3-1 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><h3>Tekshiruv savollarining javoblari va baholash mezonlari</h3>
+<p><strong>Q1. Mashinali oʻrganish va chuqur oʻrganishni “belgi” soʻzidan foydalanib, har birini bitta gap bilan farqlang.</strong></p>
+<ul>
+<li>Namunaviy javob: Mashinali oʻrganishda (anʼanaviy usulda) belgilarni inson belgilaydi, mashina esa har bir belgiga koʻpaytiriladigan vaznni oʻrganadi. Chuqur oʻrganishda esa xom maʼlumotdan boshlab belgilargacha hammasini mashina oʻrganadi.</li>
+<li>Baholash (3 ball)<ul>
+<li>2 ball: ikki usulni “belgilarni kim belgilaydi” degan savol orqali farqlagan.</li>
+<li>1 ball: chuqur oʻrganish ham mashinali oʻrganishning bir tarmogʻi ekanini aytgan yoki misol keltirgan (3 ta vazn va 1,741 ta vazn).</li>
+</ul>
+</li>
+<li>Ball ayirish: “Chuqur oʻrganishda inson hech narsa qilmaydi” deb yozsa, 1 ball ayiriladi. Maʼlumotlarni va model tuzilishini inson belgilaydi.</li>
+</ul>
+<p><strong>Q2. Oʻqitish maʼlumotlarida “yoritish xiralashishi” sahnalari boʻlsa ham, nega belgi A bu sahnalarda xato qiladi?</strong></p>
+<ul>
+<li>Namunaviy javob: Belgi A (maydon oʻzgarishi, markaz siljishi) ga oʻtkazilganda, yoritish sahnasi “maydoni keskin oshadi, markazi esa joyida qoladi” degan nuqtaga aylanadi. Bu nuqta yaqinlashish bilan bir tomonda, undan ham uzoqroqda joylashadi. Bitta toʻgʻri chiziq bilan uni yaqinlashishdan ajratib boʻlmaydi. Maʼlumot ikki songa qisqartirilganda farqlash uchun kerakli axborot yoʻqolgani sababli, maʼlumot qoʻshish bilan bu tuzalmaydi.</li>
+<li>Baholash (3 ball)<ul>
+<li>1 ball: belgilar tekisligida yoritish sahnasi yaqinlashish tomonida joylashadi.</li>
+<li>1 ball: bitta toʻgʻri chiziq (chiziqli klassifikator) bilan ajratib boʻlmaydi.</li>
+<li>1 ball: axborot belgilarni yaratish bosqichidayoq yoʻqolgan. Maʼlumot qoʻshish emas, belgilarni oʻzgartirish kerak.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Q3. Inson sezgilaridan qaysi biri talamusdan oʻtmasdan bevosita bosh miya poʻstlogʻiga boradi?</strong></p>
+<ul>
+<li>Javob: hid bilish (hid bilish epiteliysi → hid bilish piyozchasi → noksimon poʻstloq). 1 ball.</li>
+<li>Qoʻshimcha qilsa yaxshi: noksimon poʻstloqdan orbitofrontal poʻstloqqa oʻtishda talamus orqali oʻtadigan yoʻl ham bor (Sela va boshq., 2009).</li>
+</ul>
+<p><strong>Q4. Drozofiladagi LPLC2 bilan 3-boʻlimdagi belgi B nimasi bilan oʻxshash?</strong></p>
+<ul>
+<li>Namunaviy javob: ikkalasi ham “jismning har tomonga kattalashishi”ni “shunchaki qorongʻilashish”dan farqlaydi. LPLC2 harakatsiz qorongʻilashishga javob bermaydi (Klapoetke va boshq., 2017). Farqi esa qanday hosil boʻlganida. Belgi B ni inson loyihalagan, LPLC2 esa rivojlanish jarayonida shakllangan zanjir.</li>
+<li>Baholash (2 ball): oʻxshashlik uchun 1 ball, farq uchun 1 ball.</li>
+</ul>
+<p><strong>Q5. “Oʻqitish maʼlumotlarida aniqlik 100% chiqdi, demak amalda ham yaxshi ishlaydi” degan xulosaning muammosi nimada?</strong></p>
+<ul>
+<li>Namunaviy javob: oʻqitish maʼlumotlarida boʻlmagan vaziyatga duch kelsa, model xato qilishi mumkin. 4-boʻlimdagi “yoritish oʻzgarishi yoʻq” holati bunga misol. Oʻqitishdagi yoʻqotish (loss) 0.011 gacha tushdi, lekin yoritish sahnalaridan 20 tadan 0 tasi toʻgʻri topildi. Model hatto shu sahnalarda ham 0.99 ehtimollik bilan “qoch” deb ishonch bildirdi. Modelning haqiqiy qobiliyatini u ilgari koʻrmagan test maʼlumotlarida oʻlchash va amalda yuz beradigan vaziyatlar oʻqitish maʼlumotlarida bor-yoʻqligini tekshirish kerak.</li>
+<li>Baholash (3 ball)<ul>
+<li>1 ball: oʻqitishdagi natija bilan haqiqiy samaradorlikni farqlagan.</li>
+<li>1 ball: sababini — maʼlumotlarda boʻlmagan vaziyat ekanini — koʻrsatgan.</li>
+<li>1 ball: kamida bitta chora taklif qilgan (test maʼlumotlari, amaliy maʼlumot yigʻish, monitoring).</li>
+</ul>
+</li>
+</ul>
+<h3>Colab topshiriqlari uchun namunaviy javoblar</h3>
+<p><strong>Asosiy topshiriq: “qiya yaqinlashish”ni qoʻshish</strong></p>
+<ul>
+<li>1-koddagi <code>make_episode</code> ga yangi turni qoʻshiladi. Masalan: soya kattalashgan sari markaz 3–5 katakka siljiydi. Toʻgʻri javob 1 (qochish kerak) deb belgilanadi.</li>
+<li>Kutilgan natija<ul>
+<li>Belgi A: markaz siljishi katta boʻlsa, “oʻtib ketish” tomoniga tasniflanadi. Aniqlik pasayishi ehtimoli yuqori.</li>
+<li>Belgi B: chegara uzunlashgani uchun koʻpincha toʻgʻri topadi.</li>
+<li>Neyron tarmoq: bu sahna oʻqitish maʼlumotlarida boʻlsa toʻgʻri topadi, boʻlmasa bir qismida xato qiladi.</li>
+</ul>
+</li>
+<li>Baholash mezonlari<ul>
+<li>Natijalar jadvali bor.</li>
+<li>Sababni “belgi qanday axborotni saqlaydi” va “maʼlumot qanday vaziyatlarni oʻz ichiga oladi” orqali tushuntirgan.</li>
+<li>Aniq sonlar seedga qarab farq qiladi, shuning uchun sonlarning oʻziga emas, talqinga qaraladi.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Murakkab topshiriq: oʻz ishimdagi maʼlumotlar</strong></p>
+<ul>
+<li>Yaxshi javobda quyidagilar boʻladi.<ul>
+<li>3 ta belgi va ularning asosi (sohaviy bilim) keltirilgan.</li>
+<li>Oʻqitish misollari soniga qarab taqqoslash grafigi bor.</li>
+<li>“Misollar kam boʻlsa belgi usuli, yetarli boʻlsa neyron tarmoq usuli” kabi maʼlumot hajmiga bogʻliq xulosa chiqarilgan.</li>
+<li>Test maʼlumotlari faqat oxirida bir marta ishlatilgan.</li>
+</ul>
+</li>
+<li>Koʻp uchraydigan xatolar<ul>
+<li>Belgilarni hisoblashda test maʼlumotlari haqidagi axborot aralashib ketadi (maʼlumot sizib chiqishi).</li>
+<li>Faqat aniqlikka (accuracy) qarab, precision va recallni koʻrmaslik (nomutanosib maʼlumotlarda; 3-2, 9-boʻlim).</li>
+</ul>
+</li>
+</ul>
+<h3>Darsda tez-tez beriladigan savollar</h3>
+<ul>
+<li><strong>“Unda chuqur oʻrganish mashinali oʻrganishdan yomonroqmi?”</strong><ul>
+<li>Yoʻq. Bu masalaga va maʼlumot hajmiga bogʻliq.</li>
+<li>Rasm, tovush, matn kabi belgilarini soʻz bilan taʼriflash qiyin boʻlgan maʼlumotlarda chuqur oʻrganish ancha kuchli.</li>
+<li>Bu sahifadagi sahnalar ataylab sodda qilingan, shuning uchun yaxshi belgilarni inson osongina oʻylab topa oldi.</li>
+</ul>
+</li>
+<li><strong>“Inson miyasi ham teskari tarqalishni (backpropagation) bajaradimi?”</strong><ul>
+<li>Bu tasdiqlanmagan. Miya oʻxshash ishni boshqa usul bilan bajarishi mumkin degan gipoteza oʻrganilmoqda (Lillicrap va boshq., 2020).</li>
+</ul>
+</li>
+<li><strong>“Nega brauzerdagi sonlar bilan Colabdagi sonlar biroz farq qiladi?”</strong><ul>
+<li>Ikki muhitning tasodifiy son generatorlari har xil, shuning uchun sahnalar biroz farq qiladi.</li>
+<li>Belgi A ning aniqligi brauzerda 86.9% (bitta yaqinlashish ham oʻtkazib yuborilgan), Colabda 87.5%.</li>
+<li>Xulosa bir xil: yoritish sahnalarida ikkala muhitda ham hammasi xato.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-2"><h2><span class="no">3-2</span>Neyron tarmoq qismlari</h2><p class="back"><a href="3-2_building_blocks.html#teach">3-2 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><h3>Tekshiruv savollarining javoblari va baholash mezonlari</h3>
+<p><strong>Q1. Faollashtirish funksiyasi boʻlmagan neyron tarmoqqa 10 ta yashirin qatlam qoʻshilsa, u qanday chegara chiza oladi?</strong> (2 ball)</p>
+<ul>
+<li>Javob: faqat bitta toʻgʻri chiziq (yuqori oʻlchamda — tekislik).</li>
+<li>Baholash: xulosa uchun 1 ball. Bir necha chiziqli almashtirish birlashtirilsa ham bitta chiziqli almashtirish boʻlib qolishi sababi (W₂W₁x = Wx) uchun 1 ball.</li>
+</ul>
+<p><strong>Q2. Sigmoid oʻrniga ReLU ishlatilsa, nega gradiyentning yoʻqolishi kamayadi?</strong> (2 ball)</p>
+<ul>
+<li>Javob: sigmoidning gradiyenti eng koʻpi bilan 0.25, shuning uchun har qatlamda koʻpaytirilib tez kichrayadi. ReLU ning musbat sohadagi gradiyenti 1 ga teng, shuning uchun orqaga qarab borganda kamaymaydi.</li>
+<li>Baholash: 0.25 va 1 ni taqqoslash uchun 1 ball, “koʻpaytirilib kamayadi” degan tushuntirish uchun 1 ball. Manfiy sohadagi gradiyent 0 ekanini (oʻchgan neyron) qoʻshimcha qilsa yaxshi.</li>
+</ul>
+<p><strong>Q3. Toʻgʻri javob 1, bashorat 0.41 boʻlsa, MSE yoʻqotishi va ∂L/∂y qancha?</strong> (2 ball)</p>
+<ul>
+<li>Javob: L = (1 − 0.41)² = 0.3481 ≈ 0.35, ∂L/∂y = −2 × (1 − 0.41) = −1.18.</li>
+<li>Baholash: har biri 1 ball. ∂L/∂y da ishorasi ham toʻgʻri boʻlishi kerak.</li>
+</ul>
+<p><strong>Q4. Oʻqitishdagi yoʻqotish kamayishda davom etadi, validatsiya yoʻqotishi esa maʼlum bir paytdan oshib boradi. Bu qanday holat va nima qilish kerak?</strong> (3 ball)</p>
+<ul>
+<li>Javob: ortiqcha moslashish (overfitting).</li>
+<li>Baholash: ortiqcha moslashish deb tashxis qoʻyish uchun 1 ball, validatsiya yoʻqotishi eng past boʻlgan paytdagi modelni ishlatadigan erta toʻxtatish (early stopping) uchun 1 ball, dropout, vazn soʻnishi (weight decay), maʼlumotni koʻpaytirishdan kamida bittasi uchun 1 ball.</li>
+</ul>
+<p><strong>Q5. Nuqsonlar ulushi 10% boʻlgan tekshiruvda “hammasi normal” deb javob beradigan modelning aniqligi va recalli qancha?</strong> (2 ball)</p>
+<ul>
+<li>Javob: aniqlik 90%, recall 0%.</li>
+<li>Baholash: har biri 1 ball. “Nomutanosib maʼlumotlarda faqat aniqlikka qarash mumkin emas” deb qoʻshimcha qilsa yaxshi.</li>
+</ul>
+<h3>Colab topshiriqlari uchun namunaviy javoblar</h3>
+<p><strong>Asosiy topshiriq: tanh → ReLU, yashirin neyronlar 4·16·64</strong></p>
+<ul>
+<li>Ikki qatorni oʻzgartirish kerak. Faollashtirish funksiyasini max(0, z) ga, uning hosilasini esa “z &gt; 0 boʻlsa 1, aks holda 0” ga almashtiriladi.</li>
+<li>Natijalar kodni ishga tushirib, jadvalga yigʻiladi. Neyronlar koʻpaytirilsa, oʻqitishdagi aniqlik odatda oshadi, ammo validatsiya aniqligi maʼlum nuqtadan boshlab boshqa oshmasligi yoki pasayishi mumkin.</li>
+<li>Baholash mezoni: sozlama validatsiya aniqligi boʻyicha tanlanganmi (oʻqitish aniqligi boʻyicha tanlansa, ball ayiriladi), sabab ortiqcha moslashish bilan bogʻlab tushuntirilganmi — shunga qaraladi.</li>
+</ul>
+<p><strong>Murakkab topshiriq: oʻz ishimdagi maʼlumotlar bilan 6:2:2 baholash</strong></p>
+<ul>
+<li>Model faqat oʻqitish maʼlumotlarida oʻqitiladi, sozlamalar va chegara (threshold) validatsiya maʼlumotlari bilan tanlanadi, test maʼlumotlari esa faqat oxirida bir marta ishlatiladi.</li>
+<li>0.5 chegarasi toʻgʻrimi yoki yoʻqligi ishdagi xarajatlarga qarab baholanadi. Masalan, nuqsonni oʻtkazib yuborish qimmatga tushsa, chegarani pasaytirib recall oshiriladi va shu tufayli koʻpaygan soxta signallar (precisionning pasayishi) ham birga hisobotda koʻrsatiladi.</li>
+<li>Baholash mezoni: uchala koʻrsatkich ham hisobotda berilganmi, chegara boʻyicha qarorning asosi ish vaziyatiga mosmi — shunga qaraladi. Shaxsiy maʼlumotlar mavjud boʻlgan maʼlumotlar ishlatilmagani yoki anonimlashtirilgani tekshiriladi.</li>
+</ul></section>
+<section class="ans" id="a3-3"><h2><span class="no">3-3</span>Tasvirlar va CNN</h2><p class="back"><a href="3-3_image_cnn.html#teach">3-3 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><h3>Tekshiruv savollarining javoblari va baholash mezonlari</h3>
+<p><strong>Q1. 224×224 rangli rasmni 1,000 ta yashirin neyronli MLP ga kiritilsa, birinchi qatlamda nechta vazn boʻladi? (siljish (bias)siz)</strong></p>
+<ul>
+<li>Javob: 224 × 224 × 3 = 150,528, × 1,000 = <strong>150,528,000 ta</strong> (taxminan 150 million).</li>
+<li>Qoʻshimcha qilsa yaxshi: 64 ta 3×3 rangli filtrli konvolyutsiya qatlamida 3 × 3 × 3 × 64 = 1,728 ta vazn bor (siljish bilan 1,792 ta).</li>
+<li>Baholash (2 ball): formula uchun 1 ball, javob uchun 1 ball. 3 ta kanal hisobga olinmasa, 1 ball ayiriladi.</li>
+</ul>
+<p><strong>Q2. 6×6 kirishga 3×3 filtr paddingsiz, qadam 1 bilan qoʻllanilsa, chiqish oʻlchami qancha boʻladi?</strong></p>
+<ul>
+<li>Javob: (6 − 3 + 1) × (6 − 3 + 1) = <strong>4×4</strong>. 1 ball.</li>
+</ul>
+<p><strong>Q3. 5-boʻlimdagi vertikal chegara filtri chap yuqori joyga qoʻyilganda chiqish nega −3 boʻlishini hisob bilan koʻrsating.</strong></p>
+<ul>
+<li>Namunaviy javob: ustma-ust tushgan boʻlakning ikkinchi qatori [0, 3, 3], filtrning har bir qatori [1, 0, −1]. 0×1 + 3×0 + 3×(−1) = −3. Birinchi va uchinchi qatorlar butunlay 0.</li>
+<li>Baholash (2 ball): ustma-ust tushgan boʻlakni toʻgʻri tanlasa 1 ball, kataklarni oʻzaro koʻpaytirib qoʻshish hisobi toʻgʻri boʻlsa 1 ball.</li>
+</ul>
+<p><strong>Q4. 2×2 oyna [6, 3, 0, 3] uchun max pooling va average pooling qiymatlari qancha?</strong></p>
+<ul>
+<li>Javob: maksimum <strong>6</strong>, oʻrtacha (6 + 3 + 0 + 3) / 4 = <strong>3</strong>. Har biri 1 ball.</li>
+</ul>
+<p><strong>Q5. Piksellar bir xil qoida bilan aralashtirilib, model boshidan oʻqitilsa, MLP va CNN dan qaysi birining natijasi koʻproq pasayadi va nega?</strong></p>
+<ul>
+<li>Namunaviy javob: CNN ning natijasi koʻproq pasayadi.<ul>
+<li>CNN “yaqin piksellar oʻzaro bogʻliq” degan farazni tuzilishiga (3×3 filtr, pooling) joylagan. Aralashtirilsa, bu faraz buziladi.</li>
+<li>MLP esa boshidanoq piksellarning joylashuv munosabatidan foydalanmaydi, shuning uchun natijasi deyarli oʻzgarmaydi.</li>
+<li>Haqiqiy natija: brauzerda MLP 92.7% → 91.3%, CNN 78.7% → 67.3%. Colabdagi 3 ta seed oʻrtachasi: MLP 88.4% → 90.0%, CNN 80.2% → 65.8%.</li>
+</ul>
+</li>
+<li>Baholash (3 ball)<ul>
+<li>1 ball: natija (CNN koʻproq pasayadi).</li>
+<li>1 ball: CNN ning farazini (qoʻshnilik munosabatini) tushuntirgan.</li>
+<li>1 ball: shartni (bir xil qoida bilan aralashtirib, <strong>boshidan oʻqitish</strong>) aniq aytgan. “Oʻqitilgan modelga aralashtirilgan rasm kiritiladi” deb yozsa, bu 1 ball berilmaydi.</li>
+</ul>
+</li>
+</ul>
+<h3>Colab topshiriqlari uchun namunaviy javoblar</h3>
+<p><strong>Asosiy topshiriq: diagonal filtr qoʻshish</strong></p>
+<ul>
+<li>Namunaviy filtr: <code>[[0,1,1],[-1,0,1],[-1,-1,0]]</code> (oʻng yuqorisi yorugʻ, chap pasti qorongʻi boʻlgan diagonal chegara).</li>
+<li>
+<p>1-kod bilan hisoblangan 4×4 chiqish:
+  <code>3   0   0  -6
+   6   6   6   0
+   0   0   0   0
+   3   0  -3   0</code></p>
+</li>
+<li>
+<p>Eng katta qiymat <strong>6</strong> boʻlib, u 2-qatorning 1-, 2-, 3-kataklarida chiqadi. Bu qiya chiziq emas, <strong>7 raqamining yuqori tomoni ostidagi chegara</strong>. Bu filtr “yuqori va oʻng tomoni yorugʻ, pastki va chap tomoni qorongʻi” joylarga javob beradi, shuning uchun gorizontal chegaraga ham kuchli javob beradi.</p>
+</li>
+<li>Yaxshi javob mana shunday kutilgan natija (diagonal chiziq) bilan haqiqiy natija farq qilganda sababni sonlarga asoslanib tushuntiradi. Faqat filtr nomiga qarab javob joyini taxmin qilish xato boʻlishi mumkinligi — bu topshiriqning asosiy saboqi.</li>
+<li>Baholash mezonlari<ul>
+<li>Filtrdagi sonlarning joylashuvini javob joyi bilan bogʻlab tushuntirgan.</li>
+<li>Sonlar sifatida kod bilan hisoblangan qiymatlar keltirilgan.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Murakkab topshiriq: maʼlumotlarni kengaytirish (data augmentation)</strong></p>
+<ul>
+<li>Kutilgan tendensiya<ul>
+<li>Oʻqitish rasmlariga 1–2 katak surilgan rasmlar qoʻshilsa, ikkala modelning ham 1–2 katak siljishdagi aniqligi oshadi.</li>
+<li>MLP ning aniqligi ham ancha oshadi, chunki u surilgan joylarni maʼlumot orqali yodlab oladi.</li>
+<li>Oʻqitishda boʻlmagan 3 katak siljishda esa hamon CNN kamroq pasayishi kutiladi. Aniq sonlarga oʻquvchi ishga tushirgan natija asosida qaraladi.</li>
+</ul>
+</li>
+<li>Yaxshi xulosa namunasi: “Tuzilish (vaznlarni boʻlishish, pooling) maʼlumotsiz ham kichik siljishlarga kamroq taʼsirchan qiladi, kengaytirish esa faqat koʻrsatilgan oraliqdagi siljishlarga chidamli qiladi. Amalda ikkalasi birga ishlatiladi.”</li>
+</ul>
+<h3>Darsda tez-tez beriladigan savollar</h3>
+<ul>
+<li><strong>“CNN markazdagi rasmlarda MLP dan pastroq-ku?”</strong><ul>
+<li>Toʻgʻri. Bu sahifadagi kabi oʻqitish va testdagi joylashuv bir xil, maʼlumot esa kam boʻlsa, MLP yutishi mumkin. CNN ning parametrlari 4.5 marta kam.</li>
+<li>CNN ning afzalligi — parametrlarning kamligi va siljishga chidamliligi. U real fotosuratlar kabi joylashuvi har xil boʻlgan maʼlumotlarda katta samara beradi.</li>
+</ul>
+</li>
+<li><strong>“CNN joylashuv oʻzgarsa ham bir xil taniydi-ku, shunday emasmi?”</strong><ul>
+<li>Yoʻq. 2 katak surilsa, CNN ning natijasi ham 78.7% → 69.3% ga tushadi (brauzer boʻyicha).</li>
+<li>Katta CNN larning javobi ham bir necha piksel siljishda oʻzgarishi mumkin (Azulay &amp; Weiss, 2019). “Nisbatan kamroq taʼsirlanadi” degan ifoda toʻgʻriroq.</li>
+</ul>
+</li>
+<li><strong>“Nega 1 katak surilganda MLP yuqoriroq?”</strong><ul>
+<li>Bu bitta seed va 150 ta test rasmidan iborat kichik tajriba boʻlgani uchun yuzaga kelgan tebranish.</li>
+<li>Colabdagi 3 ta seed oʻrtachasida 1 katak siljishda ham CNN (64.2%) MLP dan (54.7%) yuqori boʻldi. Xulosa koʻp marta takrorlangan natijalar asosida chiqarilishini ham birga oʻrgating.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-4"><h2><span class="no">3-4</span>Nutq</h2><p class="back"><a href="3-4_speech.html#teach">3-4 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><p><strong>Tekshiruv savollari</strong></p>
+<ul>
+<li>Q1 (1 ball): 4,000 Hz.</li>
+<li>Q2 (1 ball): 3 Hz.</li>
+<li>Q3 (2 ball): taxminan 48 dB (nazariy jihatdan 49.92 → 98.08 dB). Formula uchun 1 ball, qiymat uchun 1 ball.</li>
+<li>Q4 (2 ball): 98 kadr. (8,000 − 200) ÷ 80 = 97.5 → pastga yaxlitlab 97 + 1 = 98. “97” deb javob bersa, 1 ball.</li>
+<li>Q5 (2 ball): 1,960 ta, taxminan toʻrtdan bir qismi.</li>
+</ul>
+<p><strong>Topshiriq namunalari</strong></p>
+<ul>
+<li>Asosiy (NMEL 40, FRAME 400): matritsa (kamaygan kadrlar soni) × 40 ga oʻzgaradi. Oyna uzun boʻlsa, chastota boʻyicha aniqlik ortadi, lekin kadrlar soni kamayib, vaqt boʻyicha oʻzgarishlar xiralashadi.<ul>
+<li>Baholash: kadrlar soni oʻzgarishi hisob bilan tekshirilganmi — shunga qaraladi.</li>
+</ul>
+</li>
+<li>Murakkab (oʻzi yozib olish): bir xil tovushni ikki marta yozib olsa ham korrelyatsiya 1 boʻlmaydi. Masofa, shovqin, ovoz balandligi va gapirish tezligi farq keltirib chiqaradi.<ul>
+<li>Shaxsiy maʼlumotlardan foydalanishga rozilik olinganini tekshiring.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-5"><h2><span class="no">3-5</span>Matn</h2><p class="back"><a href="3-5_text.html#teach">3-5 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><p><strong>Tekshiruv savollari</strong></p>
+<ul>
+<li>Q1 (1 ball): 0xAC01 (“각”).</li>
+<li>Q2 (2 ball): 14 bayt = 9 + 1 + 4.</li>
+<li>Q3 (2 ball): soʻzlar chastotasini vazn sifatida olib, qoʻshni boʻlaklar juftlarining uchrashini sanaladi va eng koʻp uchragan juft birlashtiriladi.</li>
+<li>Q4 (2 ball): soʻz birligida “모름” (nomaʼlum), BPE da ["초파리", "들", "이"].</li>
+<li>Q5 (2 ball): ikkalasi ham {dog:1, bites:1, man:1}. Joylashuv haqidagi axborot kerak.</li>
+</ul>
+<p><strong>Topshiriq namunalari</strong></p>
+<ul>
+<li>Asosiy (kapalak gapini qoʻshish): “나비는” (“kapalak”) bir xil oʻrinda keladigan va bir xil soʻzlar (꽃을, 날개가) bilan birga uchraydigan “꿀벌은” (“asalari”), “초파리는” (“drozofila”) va boshqalarga yaqinlashishi kutiladi.<ul>
+<li>Qiymatlarni kodni ishga tushirib tekshiring. Oʻqituvchi darsdan oldin kodni bir marta ishga tushirib qoʻyadi.</li>
+</ul>
+</li>
+<li>Murakkab (birlashtirishlar soni): birlashtirishlar koʻpaytirilsa, lugʻat kattalashadi va har bir gapdagi tokenlar soni kamayadi.<ul>
+<li>Lugʻat juda katta boʻlsa, kam uchraydigan tokenlar koʻpayib, oʻqitish uchun materiallar yetishmay qoladi.</li>
+<li>Juda kichik boʻlsa, gaplar uzayib, hisoblash hajmi ortadi.</li>
+<li>Asoslar jadval shaklida keltirilganmi — shunga qaraladi.</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-6"><h2><span class="no">3-6</span>Vaqt qatorlari va aksiya narxlari</h2><p class="back"><a href="3-6_timeseries_stock.html#teach">3-6 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><p><strong>Tekshiruv savollari</strong></p>
+<ul>
+<li>Q1 (1 ball): 500 juft.</li>
+<li>Q2 (2 ball): 10 marta. Birinchi oʻqitish 300 juft, oxirgisi 480 juft.</li>
+<li>Q3 (1 ball): taxminan 4 foiz punkti.</li>
+<li>Q4 (2 ball): tanlash yanglishligi (selection bias) va ortiqcha moslashish (overfitting). Test oraligʻi faqat oxirida bir marta ishlatiladi.</li>
+<li>Q5 (3 ball): natijani sonlar bilan oʻzgartirmasdan hisobot qilish (1 ball), maʼlumotlar va sozlamalar shartlarini koʻrsatish (1 ball), umumlashtirish chegaralari va keyingi tajribani taklif qilish (1 ball).</li>
+</ul>
+<p><strong>Topshiriq namunalari</strong></p>
+<ul>
+<li>Asosiy (butun davr boʻyicha normallashtirish): sonlar biroz oʻzgaradi. Oʻzgarish yoʻnalishi maʼlumotlarga bogʻliq.<ul>
+<li>Asosiysi, natija yaxshilansa ham, yomonlashsa ham “bu kelajak haqidagi axborotdan foydalangan baholash, shuning uchun unga ishonib boʻlmaydi” ekanini tushuntirishdir.</li>
+</ul>
+</li>
+<li>Murakkab (oʻzgarish kattaligini bashorat qilish): 2-boʻlimda daromadlilik mutlaq qiymatining avtokorrelyatsiyasi daromadlilikning oʻzinikidan katta edi (4/10 va 0/10). Shuning uchun bazaviy daraja (baseline) ga nisbatan yaxshilanish imkoniyati nisbatan katta deb kutish mumkin.<ul>
+<li>Haqiqiy natijani kodni ishga tushirib, kamida 3 ta seed bilan hisobot qilishni soʻrang.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Darsni olib borishda eʼtibor bering.</strong> Dars boshida va oxirida “bu oʻquv misoli, investitsiya maslahati emas” ekanini aniq ayting. Oʻquvchi muayyan aksiyani sotib olish yoki sotish haqida soʻrasa, bu sahifa doirasidan tashqari ekanini bildiring.</p></section>
+<section class="ans" id="a3-7"><h2><span class="no">3-7</span>Ketma-ketlik modellari</h2><p class="back"><a href="3-7_sequence_models.html#teach">3-7 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><h3>Tekshiruv savollarining javoblari va baholash mezonlari</h3>
+<p><strong>Q1. Ketma-ketlikning oʻrtachasini olib, toʻgʻri tarqaluvchi (feedforward) neyron tarmoqqa kiritilsa, qanday axborot yoʻqoladi?</strong></p>
+<ul>
+<li>Namunaviy javob: tartib yoʻqoladi. 100 → 110 → 120 va 120 → 110 → 100 ning oʻrtachasi ikkalasida ham 110.</li>
+<li>Baholash (2 ball): “tartib” desa 1 ball, misol keltirsa 1 ball.</li>
+</ul>
+<p><strong>Q2. h_t = tanh(x_t + 0.9·h_(t−1)) ga 1, 0, 0 kiritilsa, h_1, h_2 qancha?</strong></p>
+<ul>
+<li>Javob: h_1 = tanh(1) ≈ <strong>0.762</strong>, h_2 = tanh(0.686) ≈ <strong>0.595</strong>.</li>
+<li>Baholash (2 ball): har biri 1 ball. Yaxlitlashdagi ±0.002 farq toʻgʻri deb hisoblanadi.</li>
+</ul>
+<p><strong>Q3. f = σ(5) ≈ 0.9933 va kirish gate i butunlay yopiq boʻlsa, 20-katakdagi hujayra holati boshlangʻich qiymatning necha barobari boʻladi?</strong></p>
+<ul>
+<li>Javob: 0.9933¹⁹ ≈ <strong>0.880 barobar</strong>.</li>
+<li>Qoʻshimcha qilsa yaxshi: 5-boʻlimdagi haqiqiy qiymat (0.988 → 0.864, taxminan 0.875 barobar) biroz kichikroq boʻlishining sababi — kirish gate i 0.007 ga ochiq boʻlib, xalaqit beruvchi signallar (10 ta −1 va 9 ta +1) sizib kirgan.</li>
+<li>Baholash (2 ball): daraja koʻrsatkichi (19) toʻgʻri boʻlsa 1 ball, qiymat toʻgʻri boʻlsa 1 ball. 20-darajaga (0.874) koʻtarib yozsa, faqat 1 ball beriladi.</li>
+</ul>
+<p><strong>Q4. Yashirin oʻlcham 16, kirish 1 boʻlganda SimpleRNN, LSTM, GRU (darslikdagi formula) rekurrent qatlamlarining parametrlari soni qancha?</strong></p>
+<ul>
+<li>Javob: bitta toʻplam = 16 × 17 + 16 = 288 ta.<ul>
+<li>SimpleRNN: 288 ta</li>
+<li>LSTM: 4 × 288 = 1,152 ta</li>
+<li>GRU (darslikdagi formula): 3 × 288 = 864 ta</li>
+</ul>
+</li>
+<li>Qoʻshimcha qilsa yaxshi: Keras dagi standart GRU 48 ta siljishni qoʻshib, 912 ta boʻladi. Bu 2-kod chiqishiga mos keladi.</li>
+<li>Baholash (3 ball): har biri 1 ball.</li>
+</ul>
+<p><strong>Q5. LSTM T = 100 da muvaffaqiyatsiz boʻldi. “LSTM uzoq xotirani saqlay olmaydi” deb xulosa chiqarish mumkinmi?</strong></p>
+<ul>
+<li>Namunaviy javob: mumkin emas.<ul>
+<li>5-boʻlimdagidek vaznlar mos ravishda tanlansa, LSTM uzoq xotirani saqlay oladi.</li>
+<li>Muvaffaqiyatsizlik 30 epoxa ichida gradiyent tushish usuli oʻsha vaznlarni topa olmaganini bildiradi.</li>
+<li>Oʻqitish vaqtini, oʻqitish tezligini (learning rate) va maʼlumot hajmini oʻzgartirib, bir necha seed bilan qayta tajriba qilgandagina xulosa chiqarish mumkin.</li>
+</ul>
+</li>
+<li>Baholash (3 ball)<ul>
+<li>1 ball: tuzilishning imkoniyati bilan oʻqitish natijasini farqlagan.</li>
+<li>1 ball: muqobil tajriba taklif qilgan.</li>
+<li>1 ball: takroriy (seed) tajribalar zarurligini aytgan.</li>
+</ul>
+</li>
+</ul>
+<h3>Colab topshiriqlari uchun namunaviy javoblar</h3>
+<p><strong>Asosiy topshiriq: kirish gate ini doim ochiq qilish (i = σ(5))</strong></p>
+<ul>
+<li>Kutilgan natija: har bir katakda hujayra holatiga 0.993 × g(±0.995) qoʻshiladi. Hujayra holati soʻnggi xalaqit signallariga ergashib kuchli tebranadi va birinchi signal teskarisiga oʻzgartirilsa ham 20 katakdan keyingi qiymat deyarli bir xil boʻlib qoladi.</li>
+<li>Oʻquvchi albatta kod bilan hisoblangan qiymatlarni keltirishi kerak. Oʻqituvchi darsdan oldin kodni bir marta oʻzi ishga tushirib, sonlarni tekshiradi.</li>
+<li>Yaxshi xulosa namunasi: “Kirish gate i ‘qachon yozish’ni belgilaydi. Istalgan paytda yozilaversa, eski signal yangi signal ostida qolib ketadi.”</li>
+</ul>
+<p><strong>Murakkab topshiriq: T = 100 dagi muvaffaqiyatsizlikni muvaffaqiyatga aylantirish</strong></p>
+<ul>
+<li>Sinab koʻrishga arziydigan narsalar<ul>
+<li>Epoxalarni koʻpaytirish (masalan, 100 va undan koʻp)</li>
+<li>Oʻqitish tezligini oʻzgartirish (0.001, 0.01)</li>
+<li>Oʻqitish maʼlumotlarini koʻpaytirish</li>
+<li>Qisqa ketma-ketliklardan boshlab, asta-sekin uzaytirib oʻqitish (curriculum learning)</li>
+<li>Yashirin oʻlchamni oʻzgartirish</li>
+</ul>
+</li>
+<li>Natijani faqat ishga tushirib bilish mumkin. Kamida 3 ta seed bilan jadval tuzdiring va muvaffaqiyat yoki muvaffaqiyatsizlik seedga qarab farq qilsa, buni ham natija sifatida hisobot qilishni soʻrang.</li>
+<li>Baholash mezoni: oʻzgartirishlar bir vaqtda bittadan taqqoslanganmi — shunga qaraladi. Natijalar saralab hisobot qilinmaganmi — bunga ham qaraladi.</li>
+</ul>
+<h3>Darsda tez-tez beriladigan savollar</h3>
+<ul>
+<li><strong>“Darslikda RNN uzun ketma-ketliklarda muvaffaqiyatsiz boʻladi deyilgan edi, nega SimpleRNN T = 50 da muvaffaqiyatli boʻldi?”</strong><ul>
+<li>Topshiriq nisbatan sodda (faqat birinchi katakni eslab qolish), va initsializatsiya usuliga qarab xotira ancha uzoq saqlanishi ham mumkin. Keras rekurrent qatlamlarida rekurrent vaznlarni ortogonal matritsa bilan initsializatsiya qilish standart hisoblanadi.</li>
+<li>Tajriba natijalarini darslikdagi gaplarga moslashtirishga urinmasdan, shartlarni koʻrsatib, natijani boricha hisobot qilish muhim.</li>
+</ul>
+</li>
+<li><strong>“Nega GRU T = 50 da muvaffaqiyatsiz boʻldi?”</strong><ul>
+<li>Bu sozlamada (30 epoxa, oʻqitish tezligi 0.005) ikkala seedda ham natija tasodifiy taxmin darajasida qoldi. Sababini faqat shu tajriba asosida aniq aytib boʻlmaydi. Buni murakkab topshiriqqa bogʻlang.</li>
+</ul>
+</li>
+<li><strong>“Unutish gate i (forget gate) LSTM da boshidan bormidi?”</strong><ul>
+<li>Yoʻq. 1997-yilgi asl maqolada yoʻq edi, uni Gers va boshqalar 2000-yilgi maqolada qoʻshgan (konferensiyada 1999-yilda taqdim etilgan).</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-8"><h2><span class="no">3-8</span>Attention va Transformer</h2><p class="back"><a href="3-8_attention_transformer.html#teach">3-8 sahifadagi “Oʻqituvchilar uchun maslahatlar”ga qaytish</a></p><h3>Tekshiruv savollarining javoblari va baholash mezonlari</h3>
+<p><strong>Q1. q = [2, 0.4], k = [2, 0], d_k = 2 boʻlganda q·k / √d_k ball qancha?</strong></p>
+<ul>
+<li>Javob: q·k = 4, 4 / √2 ≈ <strong>2.828</strong>.</li>
+<li>Baholash (2 ball): skalyar koʻpaytma uchun 1 ball, boʻlish uchun 1 ball.</li>
+</ul>
+<p><strong>Q2. [1.98, 1.98, 2.772] ballarining softmaxi va V = [10,0], [0,10], [6,6] ni aralashtirish natijasi qanday?</strong></p>
+<ul>
+<li>Javob: attention ≈ [0.238, 0.238, 0.525], natija ≈ <strong>[5.53, 5.53]</strong>. 1-kod chiqishi [5.525, 5.525].</li>
+<li>Baholash (3 ball): softmax uchun 1 ball, vaznli yigʻindi formulasi uchun 1 ball, qiymat uchun 1 ball. ±0.01 farq toʻgʻri deb hisoblanadi.</li>
+</ul>
+<p><strong>Q3. Pozitsion kodlashsiz faqat self-attention ishlatilsa, soʻzlar tartibi aralashtirilganda har bir soʻzning chiqishi qanday boʻladi?</strong></p>
+<ul>
+<li>Namunaviy javob: aynan bir xil boʻladi. Har bir soʻzning chiqishi faqat boshqa barcha soʻzlar bilan taqqoslash orqali aniqlanadi, taqqoslanadigan soʻzlar toʻplami esa tartibdan qatʼi nazar bir xil. 1-kodda farq 1e-16, yaʼni hisoblash xatosi darajasida edi.</li>
+<li>Baholash (2 ball): natija uchun 1 ball, sabab uchun 1 ball.</li>
+</ul>
+<p><strong>Q4. d = 512 boʻlgan multi-head attention qatlamining parametrlari soni qancha va headlar soni 16 ga oʻzgartirilsa, nima oʻzgaradi?</strong></p>
+<ul>
+<li>Javob: 4 × 512² + 4 × 512 = <strong>1,050,624 ta</strong>. Headlar soni oʻzgartirilsa ham bir xil qoladi (faqat head kengligi 64 → 32).</li>
+<li>Baholash (2 ball): qiymat uchun 1 ball, “oʻzgarmaydi” degan javob va sababi uchun 1 ball.</li>
+</ul>
+<p><strong>Q5. Uzunlik 4,096 → 8,192 ga oshsa, attention ballari soni qancha boʻladi?</strong></p>
+<ul>
+<li>Javob: <strong>4 barobar</strong> (16,777,216 → 67,108,864). 1 ball.</li>
+</ul>
+<h3>Colab topshiriqlari uchun namunaviy javoblar</h3>
+<p><strong>Asosiy topshiriq: √d_k ga boʻlmaslik</strong></p>
+<ul>
+<li>Kutubxona misolida boʻlinmasa, ballar √2 barobar oshib, attention bir tomonga koʻproq ogʻadi.</li>
+<li>Vektorlar 10 barobar kattalashtirilsa, ballar 100 barobar oshadi va softmax deyarli bitta katakka 1 beradi. Shunda qolgan kataklarning gradiyenti 0 ga yaqinlashib, oʻqitish qiyinlashadi.</li>
+<li>Sonlar sifatida oʻquvchi kod bilan hisoblagan qiymatlarni keltirishini soʻrang.</li>
+</ul>
+<p><strong>Murakkab topshiriq: pozitsion embeddingni olib tashlash</strong></p>
+<ul>
+<li>Kutilgan natija: joylashuv haqida axborot boʻlmasa, birinchi katakni boshqa kataklardan farqlab boʻlmaydi. Shuning uchun faqat birinchi katakni tanlab koʻrib boʻlmaydi va toʻgʻri javoblar ulushi tasodifiy taxmin darajasiga yaqinlashishi kutiladi. “Birinchi katakka beriladigan attention” ham 1/T atrofiga tushadi.</li>
+<li>Haqiqiy natijani kodni ishga tushirib tekshirishni soʻrang. Oʻqituvchi darsdan oldin kodni bir marta oʻzi ishga tushirib koʻradi.</li>
+<li>Baholash mezoni: 6-boʻlimdagi “tartib aralashtirilsa ham bir xil” degan fikr bilan bogʻlab tushuntirilganmi — shunga qaraladi.</li>
+</ul>
+<h3>Darsda tez-tez beriladigan savollar</h3>
+<ul>
+<li><strong>“Nega LSTM sonlari 3-7 dagidan farq qiladi?”</strong><ul>
+<li>3-8 dagi 2-kod kirish uzunligi qatʼiy belgilangan model sifatida qayta tuzilgan (3-7 da uzunlik erkin). Shuning uchun boshlangʻich hisoblash grafi va tasodifiy sonlar sarfi biroz farq qiladi.</li>
+<li>T = 100 natijalari: 3-7 da 48.9 / 47.2%, 3-8 da 50.6 / 57.4%. Ikkalasi ham tasodifiy taxmin darajasida degan xulosa bir xil.</li>
+</ul>
+</li>
+<li><strong>“Transformer yutgan ekan, endi LSTM ishlatilmaydimi?”</strong><ul>
+<li>Bu topshiriqda toʻgʻri javob “faqat birinchi katak” boʻlgani uchun u attention uchun ayniqsa qulay.</li>
+<li>Real vaqtda bittadan katak qayta ishlanganda yoki maʼlumotlar kam boʻlganda rekurrent modellar hali ham ishlatiladi (3-7, 9-boʻlim).</li>
+</ul>
+</li>
+<li><strong>“Asl maqoladagi bazaviy modelning parametrlari soni qancha?”</strong><ul>
+<li>Bu sahifa bitta blokni (3,152,384 ta) formula bilan hisoblab koʻrsatadi.</li>
+</ul>
+</li>
+</ul></section>
+</main>
+<footer><div class="wrap">
+  <p><b>Chuqur oʻrganish: A dan Z gacha · Oʻqituvchilar uchun javoblar</b> — Muallif: Sangsun Ahn (M-Robo MChJ rahbari).</p>
+  <p class="cc"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" target="_blank" rel="license noopener" aria-label="Creative Commons Attribution-NonCommercial 4.0 International"><span class="ccb">cc</span><span class="ccb">BY</span><span class="ccb">NC</span></a> Ushbu asar <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" target="_blank" rel="license noopener">Creative Commons Attribution-NonCommercial 4.0 International litsenziyasi (CC BY-NC 4.0)</a> asosida eʼlon qilinadi. Faqat notijorat maqsadlarda erkin tarqatish va oʻzgartirib foydalanish mumkin, lekin <b>manba albatta koʻrsatilishi</b> kerak. Manbani koʻrsatish namunasi: Sangsun Ahn, «Chuqur oʻrganish: A dan Z gacha · Oʻqituvchilar uchun javoblar», AI Model Review.</p>
+</div></footer>
+<script>
+/* ══ 페이지 안 바로가기: 해시 이동 대신 스크립트로 스크롤 (GitHub 미리보기·iframe에서도 작동) ══ */
+(function(){
+  function go(id){var el=document.getElementById(id); if(!el) return false;
+    var nav=document.querySelector('nav.top'), off=(nav?nav.offsetHeight:0)+8;
+    var y=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-off;
+    var smooth=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    try{window.scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});}catch(e){window.scrollTo(0,Math.max(0,y));}
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+    if(el.tabIndex<0&&!/^(A|BUTTON|INPUT|SECTION|HEADER)$/.test(el.tagName)){} return true;}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=decodeURIComponent(a.getAttribute('href').slice(1)); if(!id) return;
+    if(go(id)) e.preventDefault();});
+  window.addEventListener('load',function(){ if(location.hash){var id=decodeURIComponent(location.hash.slice(1)); setTimeout(function(){go(id);},60);}});
+})();
+</script>
+<div class="lang-pick" id="langPick"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="Til: Oʻzbekcha"><span aria-hidden="true">🌐</span>Oʻzbekcha</button><ul hidden><li><a href="../answers.html" hreflang="ko" lang="ko" data-l="ko">한국어</a></li><li><a href="../en/answers.html" hreflang="en" lang="en" data-l="en">English</a></li><li><a href="../zh/answers.html" hreflang="zh-CN" lang="zh-CN" data-l="zh">中文</a></li><li><a href="../ja/answers.html" hreflang="ja" lang="ja" data-l="ja">日本語</a></li><li><a href="../uz/answers.html" hreflang="uz" lang="uz" data-l="uz" aria-current="true">Oʻzbekcha</a></li><li><a href="../ru/answers.html" hreflang="ru" lang="ru" data-l="ru">Русский</a></li></ul></div><script>(function(){var p=document.getElementById("langPick"),b=p.querySelector("button"),u=p.querySelector("ul");function t(o){u.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");}b.addEventListener("click",function(e){e.stopPropagation();t(u.hidden);});document.addEventListener("click",function(){t(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});u.addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;try{localStorage.setItem("amr-lang",a.getAttribute("data-l"));}catch(x){}if(location.hash){e.preventDefault();location.href=a.getAttribute("href")+location.hash;}});})();</script>
+</body>
+</html>

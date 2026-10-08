@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><link rel="alternate" hreflang="ko" href="../answers.html"><link rel="alternate" hreflang="en" href="../en/answers.html"><link rel="alternate" hreflang="zh-CN" href="../zh/answers.html"><link rel="alternate" hreflang="ja" href="../ja/answers.html"><link rel="alternate" hreflang="uz" href="../uz/answers.html"><link rel="alternate" hreflang="ru" href="../ru/answers.html"><script>(function(){var L=["ko","en","zh","ja","uz","ru"],cur="zh",f="answers.html",w=null,q=location.search.match(/[?&]lang=([a-z]{2})/);try{if(q&&L.indexOf(q[1])>=0)localStorage.setItem("amr-lang",q[1]);w=localStorage.getItem("amr-lang");}catch(e){}if(q&&L.indexOf(q[1])>=0)w=q[1];if(!w&&cur==="ko"){var n=navigator.languages||[navigator.language||""];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().slice(0,2);if(L.indexOf(c)>=0){w=c;break;}}}if(!w||w===cur||L.indexOf(w)<0||(cur!=="ko"&&!q))return;var up=cur==="ko"?"":"../";location.replace(up+(w==="ko"?"":w+"/")+f+location.hash);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>教师用答案 — 深度学习 A to Z | AI Model Review</title>
+<meta name="description" content="深度学习 A to Z 3-1 ~ 3-8 检测题的评分标准与 Colab 作业参考答案。">
+<meta name="author" content="Sangsun Ahn">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" rel="stylesheet">
+<style>
+:root{--night:#1b1533;--deep:#120e24;--panel:#261e45;--line:#3d3170;--text:#efe9ff;--muted:#b5abd6;--violet:#b07cff;--pink:#ff86b8;--cyan:#57d0dc;--amber:#ffc65c;--pix:"Galmuri11","Noto Sans SC","IBM Plex Sans KR",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--night);color:var(--text);font-family:"Noto Sans SC","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.75}
+a{color:var(--cyan)}:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:var(--deep);border-bottom:4px solid var(--line);padding:36px 0 26px}
+header h1{font-family:var(--pix);font-weight:400;font-size:clamp(24px,3.4vw,34px);margin:0 0 6px;text-shadow:3px 3px 0 #5a2fa8}
+header p{margin:0;color:var(--muted)}
+.notice{margin-top:14px;background:var(--panel);border-left:4px solid var(--amber);padding:10px 14px;font-size:15px}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(27,21,51,.96);border-bottom:2px solid var(--line)}
+nav.top .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 20px}
+nav.top a{font-family:var(--pix);font-size:13px;text-decoration:none;color:var(--text);border:2px solid var(--line);padding:4px 8px;background:var(--panel)}
+nav.top a:hover{border-color:var(--cyan)} nav.top a.home{border-color:var(--violet)}
+.ans{padding:40px 0 10px;border-bottom:2px dashed var(--line)}
+.ans h2{font-family:var(--pix);font-weight:400;font-size:24px;margin:0 0 4px;display:flex;gap:12px;align-items:center}
+.ans h2 .no{border:3px solid var(--violet);padding:2px 8px;font-size:17px}
+.ans h3{font-size:18px;color:var(--amber);margin:26px 0 8px}
+.ans .back{margin:0 0 6px;font-size:14px}
+.ans li{margin:3px 0}.ans ul,.ans ol{padding-left:22px}
+.ans table{border-collapse:collapse;margin:10px 0;font-size:15px;display:block;overflow-x:auto}
+.ans th,.ans td{border:1px solid var(--line);padding:6px 10px;text-align:left}.ans th{background:var(--panel)}
+code{background:var(--panel);padding:1px 5px;border-radius:3px;font-size:.92em}
+footer{margin-top:40px;padding:26px 0 44px;background:var(--deep);border-top:4px solid var(--line);color:var(--muted);font-size:14px}
+footer b{color:var(--text)}
+</style>
+<style id="cc-style">.cc{margin-top:14px;padding-top:12px;border-top:1px solid rgba(181,171,214,.3);font-size:13px;line-height:1.7}.cc .ccb{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:0 5px;margin-right:4px;font-weight:700;font-size:11.5px;letter-spacing:.02em}.cc a{color:inherit}</style>
+<style>h1,h2,h3,h4,p,li,td,th,dd,dt,figcaption,summary,label,button,span,div,a{word-break:normal!important;line-break:strict}</style><style>.lang-pick{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;font:600 14px/1.2 system-ui,sans-serif}.lang-pick>button{display:flex;gap:6px;align-items:center;background:#25283a;color:#eceaf3;border:1px solid #4a4f6e;border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);font:inherit}.lang-pick>button:hover{border-color:#f1b646}.lang-pick ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;background:#1c1e2d;border:1px solid #4a4f6e;border-radius:12px;min-width:150px;box-shadow:0 10px 30px rgba(0,0,0,.5)}.lang-pick ul[hidden]{display:none}.lang-pick a{display:block;padding:8px 12px;border-radius:8px;color:#eceaf3;text-decoration:none}.lang-pick a:hover,.lang-pick a:focus-visible{background:#25283a}.lang-pick a[aria-current]{color:#f1b646}@media print{.lang-pick{display:none}}</style></head>
+<body>
+<header><div class="wrap">
+  <h1>教师用答案</h1>
+  <p>深度学习 A to Z 3-1 ~ 3-8 检测题的评分标准与 Colab 作业参考答案</p>
+  <p class="notice">如果你是学习者，请先做完各篇的检测题再来核对。作业的运行结果可能因环境不同而略有差异，讲师应在上课前亲自运行一次，确认数字。</p>
+</div></header>
+<nav class="top" aria-label="各篇快速跳转"><div class="wrap"><a class="home" href="index.html">首页</a><a href="#a3-1">3-1 AI 是如何工作的</a><a href="#a3-2">3-2 神经网络的部件</a><a href="#a3-3">3-3 图像与 CNN</a><a href="#a3-4">3-4 语音</a><a href="#a3-5">3-5 文本</a><a href="#a3-6">3-6 时间序列·股价</a><a href="#a3-7">3-7 序列模型</a><a href="#a3-8">3-8 注意力与 Transformer</a></div></nav>
+<main class="wrap">
+<section class="ans" id="a3-1"><h2><span class="no">3-1</span>AI 是如何工作的</h2><p class="back"><a href="3-1_how_ai_works.html#teach">返回 3-1 页面的教师提示</a></p><h3>检测题答案与评分标准</h3>
+<p><strong>Q1. 请用“特征”一词，各用一句话区分机器学习和深度学习。</strong></p>
+<ul>
+<li>参考答案：机器学习（传统方式）由人来确定特征，机器学习每个特征要乘的权重。深度学习则从原始数据到特征都由机器来学习。</li>
+<li>评分（3分）<ul>
+<li>2分：用“由谁来确定特征”区分了两种方式。</li>
+<li>1分：提到了深度学习也是机器学习的一个分支这一关系，或举了例子（3个权重对 1,741个）。</li>
+</ul>
+</li>
+<li>扣分：如果写“深度学习中人什么都不用做”，扣1分。人要确定数据和模型结构。</li>
+</ul>
+<p><strong>Q2. 训练数据中明明有“光线变暗”的场景，为什么特征 A 还是会把这种场景判断错？</strong></p>
+<ul>
+<li>参考答案：换成特征 A（面积变化、中心移动）后，光线场景就成了“面积大幅增加而中心不变”的点。这个点落在与“逼近”同侧、更远的位置。仅用一条直线无法把它与“逼近”分开。由于在压缩成2个数字时，用于区分的信息已经丢失，所以增加数据也无法改正。</li>
+<li>评分（3分）<ul>
+<li>1分：在特征平面上，光线场景落在“逼近”一侧。</li>
+<li>1分：仅用一条直线（线性分类器）无法分开。</li>
+<li>1分：信息在制作特征的阶段就已经丢失了。需要改的是特征，而不是增加数据。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Q3. 人的感觉中，哪一种不经过丘脑而直接到达大脑皮层？</strong></p>
+<ul>
+<li>答案：嗅觉（嗅上皮 → 嗅球 → 梨状皮层）。1分。</li>
+<li>补充加分点：从梨状皮层到眶额皮层时，也有经过丘脑的通路（Sela 等，2009）。</li>
+</ul>
+<p><strong>Q4. 果蝇的 LPLC2 与第3节的特征 B 有什么相似之处？</strong></p>
+<ul>
+<li>参考答案：两者都能区分“物体向四周变大”和“只是变暗”。LPLC2 对没有运动的变暗不作反应（Klapoetke 等，2017）。不同之处在于形成方式。特征 B 是人设计的，而 LPLC2 是在发育过程中形成的回路。</li>
+<li>评分（2分）：相似点1分，不同点1分。</li>
+</ul>
+<p><strong>Q5. “训练数据上准确率达到了100%，所以在实际现场也会表现很好”，这个判断有什么问题？</strong></p>
+<ul>
+<li>参考答案：遇到训练数据中没有的情况时可能会出错。第4节的“无光线变化”就是一个例子。训练损失降到了 0.011，但光线场景20个中一个也没答对。而且对这些场景，它也以 0.99 的概率确信“要躲开”。应当用从未见过的测试数据来衡量实力，并检查现场可能出现的情况是否包含在训练数据中。</li>
+<li>评分（3分）<ul>
+<li>1分：区分了训练成绩与实际性能。</li>
+<li>1分：指出了原因在于“数据中没有的情况”。</li>
+<li>1分：提出了至少一种对策（测试数据、收集现场数据、监控）。</li>
+</ul>
+</li>
+</ul>
+<h3>Colab 作业参考答案</h3>
+<p><strong>基础作业：添加“斜向逼近”</strong></p>
+<ul>
+<li>在代码1的 <code>make_episode</code> 中添加新类型。例如：影子变大的同时，中心移动3~5格。正确答案设为1（需要躲开）。</li>
+<li>预期结果<ul>
+<li>特征 A：中心移动较大时会被分到“经过”一侧。准确率很可能下降。</li>
+<li>特征 B：由于边缘变长，大体上能答对。</li>
+<li>神经网络：训练数据中有这种场景就能答对，没有的话会错一部分。</li>
+</ul>
+</li>
+<li>评分要点<ul>
+<li>有结果表。</li>
+<li>用“特征包含的信息”和“数据包含的情况”说明了原因。</li>
+<li>实际数字因随机种子而异，所以看的是解释，而不是数字本身。</li>
+</ul>
+</li>
+</ul>
+<p><strong>挑战作业：我的业务数据</strong></p>
+<ul>
+<li>好的答案应具备以下几点。<ul>
+<li>有3个特征及其依据（业务知识）。</li>
+<li>有按训练样本数比较的图表。</li>
+<li>得出了随数据量变化的结论，例如“样本少时用特征方式，样本充足时用神经网络方式”。</li>
+<li>测试数据只在最后用了一次。</li>
+</ul>
+</li>
+<li>常见错误<ul>
+<li>计算特征时混入了测试数据的信息（数据泄漏）。</li>
+<li>只看准确率，不看精确率·召回率（数据不平衡时，3-2 第9节）。</li>
+</ul>
+</li>
+</ul>
+<h3>课堂上常见的问题</h3>
+<ul>
+<li><strong>“那么深度学习比机器学习差吗？”</strong><ul>
+<li>不是。取决于问题和数据量。</li>
+<li>对于照片·声音·文字这类难以用语言规定特征的数据，深度学习要强得多。</li>
+<li>本页面的场景是特意做得很简单的，所以人能轻易想到好的特征。</li>
+</ul>
+</li>
+<li><strong>“人脑也做反向传播吗？”</strong><ul>
+<li>尚未得到证实。有假说认为大脑可以用别的方法做类似的事，目前正在研究中（Lillicrap 等，2020）。</li>
+</ul>
+</li>
+<li><strong>“为什么浏览器的数字和 Colab 的数字略有不同？”</strong><ul>
+<li>两个环境的随机数生成器不同，所以场景略有差异。</li>
+<li>特征 A 的准确率在浏览器中为 86.9%（还漏掉了1个逼近），在 Colab 中为 87.5%。</li>
+<li>结论相同。光线场景在两个环境中都全部判断错误。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-2"><h2><span class="no">3-2</span>神经网络的部件</h2><p class="back"><a href="3-2_building_blocks.html#teach">返回 3-2 页面的教师提示</a></p><h3>检测题答案与评分标准</h3>
+<p><strong>Q1. 在没有激活函数的神经网络中堆叠10个隐藏层，能画出什么样的边界？</strong>（2分）</p>
+<ul>
+<li>答案：只有一条直线（在高维中为一个平面）。</li>
+<li>评分：结论1分。理由“多个线性变换合起来仍是一个线性变换”（W₂W₁x = Wx）1分。</li>
+</ul>
+<p><strong>Q2. 用 ReLU 代替 sigmoid，为什么梯度消失会减少？</strong>（2分）</p>
+<ul>
+<li>答案：sigmoid 的梯度最大为 0.25，每经过一层就要相乘，因此迅速变小。ReLU 在正数区间的梯度为1，往回传时不会变小。</li>
+<li>评分：比较 0.25 与 1 得1分，说明“相乘后变小”得1分。最好再补充负数区间梯度为0（熄灭的神经元）。</li>
+</ul>
+<p><strong>Q3. 正确答案为1、预测为 0.41 时，MSE 损失和 ∂L/∂y 是多少？</strong>（2分）</p>
+<ul>
+<li>答案：L = (1 − 0.41)² = 0.3481 ≈ 0.35，∂L/∂y = −2 × (1 − 0.41) = −1.18。</li>
+<li>评分：各1分。∂L/∂y 的符号也必须正确。</li>
+</ul>
+<p><strong>Q4. 训练损失持续下降，而验证损失从某个时刻开始上升。这是什么状态？应该怎么做？</strong>（3分）</p>
+<ul>
+<li>答案：过拟合。</li>
+<li>评分：诊断为过拟合1分；采用早停、使用验证损失最低时刻的模型1分；提到 dropout·权重衰减·增加数据中的至少一种1分。</li>
+</ul>
+<p><strong>Q5. 在不良率为10%的检测中，回答“全部正常”的模型，其准确率和召回率是多少？</strong>（2分）</p>
+<ul>
+<li>答案：准确率 90%，召回率 0%。</li>
+<li>评分：各1分。最好再补充“在不平衡数据上不能只看准确率”。</li>
+</ul>
+<h3>Colab 作业参考答案</h3>
+<p><strong>基础作业：tanh → ReLU，隐藏神经元 4·16·64</strong></p>
+<ul>
+<li>需要改的地方有两行。把激活函数改为 max(0, z)，把它的导数改为“z &gt; 0 时为1，否则为0”。</li>
+<li>结果要运行后整理成表。增加神经元时训练准确率大体会上升，但验证准确率可能从某一点开始不再上升或反而下降。</li>
+<li>评分要点：看是否用验证准确率来选择设置（用训练准确率来选则扣分），以及是否将原因与过拟合联系起来说明。</li>
+</ul>
+<p><strong>挑战作业：用我的业务数据做 6:2:2 评估</strong></p>
+<ul>
+<li>只用训练数据训练，用验证数据选择设置和阈值，测试数据只在最后用一次。</li>
+<li>阈值 0.5 是否合适，要根据业务成本来判断。例如漏检不良品的代价很大时，就降低阈值以提高召回率，同时报告因此增加的误报（精确率下降）。</li>
+<li>评分要点：看是否报告了全部三个指标，阈值判断的依据是否符合业务情况。还要确认含有个人信息的数据是否未被使用或已做匿名化处理。</li>
+</ul></section>
+<section class="ans" id="a3-3"><h2><span class="no">3-3</span>图像与 CNN</h2><p class="back"><a href="3-3_image_cnn.html#teach">返回 3-3 页面的教师提示</a></p><h3>检测题答案与评分标准</h3>
+<p><strong>Q1. 把 224×224 的彩色照片输入有1,000个隐藏神经元的 MLP，第一层的权重有多少个？（不含偏置）</strong></p>
+<ul>
+<li>答案：224 × 224 × 3 = 150,528，× 1,000 = <strong>150,528,000个</strong>（约1.5亿个）。</li>
+<li>补充加分点：有64个 3×3 彩色滤波器的卷积层为 3 × 3 × 3 × 64 = 1,728个（含偏置 1,792个）。</li>
+<li>评分（2分）：算式1分，答案1分。漏掉通道数3扣1分。</li>
+</ul>
+<p><strong>Q2. 对 6×6 的输入，不加填充、以步幅1应用 3×3 滤波器，输出大小是多少？</strong></p>
+<ul>
+<li>答案：(6 − 3 + 1) × (6 − 3 + 1) = <strong>4×4</strong>。1分。</li>
+</ul>
+<p><strong>Q3. 请通过计算说明：把第5节的竖直边缘滤波器放在左上角位置时，输出为什么是 −3。</strong></p>
+<ul>
+<li>参考答案：重叠小块的第二行是 [0, 3, 3]，滤波器每一行是 [1, 0, −1]。0×1 + 3×0 + 3×(−1) = −3。第一行和第三行全部为0。</li>
+<li>评分（2分）：正确选出重叠小块得1分，逐格相乘再相加的计算正确得1分。</li>
+</ul>
+<p><strong>Q4. 2×2 窗口 [6, 3, 0, 3] 的最大池化值和平均池化值是多少？</strong></p>
+<ul>
+<li>答案：最大值 <strong>6</strong>，平均值 (6 + 3 + 0 + 3) / 4 = <strong>3</strong>。各1分。</li>
+</ul>
+<p><strong>Q5. 把像素按相同规则打乱后从头开始训练，MLP 和 CNN 谁下降得更多？为什么？</strong></p>
+<ul>
+<li>参考答案：CNN 下降得更多。<ul>
+<li>CNN 把“相邻像素彼此相关”这一假设放进了结构（3×3 滤波器、池化）中。一打乱，这个假设就被打破了。</li>
+<li>MLP 本来就不使用像素之间的位置关系，所以几乎不变。</li>
+<li>实际结果：浏览器中 MLP 92.7% → 91.3%，CNN 78.7% → 67.3%。Colab 3个种子的平均为 MLP 88.4% → 90.0%，CNN 80.2% → 65.8%。</li>
+</ul>
+</li>
+<li>评分（3分）<ul>
+<li>1分：结果（CNN 下降得更多）。</li>
+<li>1分：说明了 CNN 的假设（邻近关系）。</li>
+<li>1分：准确说出了条件（按相同规则打乱并<strong>从头开始训练</strong>）。如果写成“把打乱的图输入已训练好的模型”，则不给这1分。</li>
+</ul>
+</li>
+</ul>
+<h3>Colab 作业参考答案</h3>
+<p><strong>基础作业：添加对角线滤波器</strong></p>
+<ul>
+<li>示例滤波器：<code>[[0,1,1],[-1,0,1],[-1,-1,0]]</code>（右上亮、左下暗的对角线边界）。</li>
+<li>
+<p>用代码1计算出的 4×4 输出：
+  <code>3   0   0  -6
+   6   6   6   0
+   0   0   0   0
+   3   0  -3   0</code></p>
+</li>
+<li>
+<p>最大值是 <strong>6</strong>，出现在第2行第1·2·3格。它不是斜向的笔画，而是<strong>7 的上边正下方的边界</strong>。这个滤波器对“上方·右方亮、下方·左方暗”的地方有反应，所以对水平边界也会有强烈反应。</p>
+</li>
+<li>像这样预期（对角线笔画）与实际结果不同时，好的答案会以数字为依据说明原因。只看滤波器的名字去猜反应位置可能会出错，这正是本作业要学到的一点。</li>
+<li>评分要点<ul>
+<li>把滤波器数字的排列与反应位置联系起来作了说明。</li>
+<li>数字引用的是用代码计算出的值。</li>
+</ul>
+</li>
+</ul>
+<p><strong>挑战作业：数据增强</strong></p>
+<ul>
+<li>预期趋势<ul>
+<li>在训练图片中混入平移1~2格的图片后，两种模型在平移1~2格时的准确率都会上升。</li>
+<li>MLP 也会大幅上升，因为它通过数据记住了平移后的位置。</li>
+<li>在训练中没出现过的平移3格时，预计仍是 CNN 下降得较少。实际数字以学生运行的结果为准。</li>
+</ul>
+</li>
+<li>好的结论示例：“结构（权重共享·池化）即使没有数据也能让模型对小的平移不那么敏感；而增强只能让模型承受所展示范围内的平移。实际工作中两者会一起使用。”</li>
+</ul>
+<h3>课堂上常见的问题</h3>
+<ul>
+<li><strong>“CNN 在居中的图片上反而比 MLP 低？”</strong><ul>
+<li>没错。像本页面这样，训练和测试的位置相同且数据很少时，MLP 可能获胜。CNN 的参数要少4.5倍。</li>
+<li>CNN 的优点是参数少、对平移更稳健。在像真实照片那样位置各不相同的数据上，效果更明显。</li>
+</ul>
+</li>
+<li><strong>“CNN 不是无论位置怎么变都能同样识别吗？”</strong><ul>
+<li>不是。平移2格后，CNN 也会从 78.7% 降到 69.3%（浏览器结果）。</li>
+<li>即使是大型 CNN，平移几个像素也可能改变答案（Azulay &amp; Weiss, 2019）。准确的说法是“相对不那么容易受影响”。</li>
+</ul>
+</li>
+<li><strong>“为什么平移1格时 MLP 更高？”</strong><ul>
+<li>这是只用一个种子、150张测试图的小实验所带来的波动。</li>
+<li>在 Colab 3个种子的平均中，平移1格时也是 CNN（64.2%）高于 MLP（54.7%）。要同时教给学生：结论应根据多次重复的结果得出。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-4"><h2><span class="no">3-4</span>语音</h2><p class="back"><a href="3-4_speech.html#teach">返回 3-4 页面的教师提示</a></p><p><strong>检测题</strong></p>
+<ul>
+<li>Q1（1分）：4,000 Hz。</li>
+<li>Q2（1分）：3 Hz。</li>
+<li>Q3（2分）：约 48 dB（理论值 49.92 → 98.08 dB）。算式1分，数值1分。</li>
+<li>Q4（2分）：98帧。(8,000 − 200) ÷ 80 = 97.5 → 舍去得 97 + 1 = 98。答“97”得1分。</li>
+<li>Q5（2分）：1,960个，约四分之一。</li>
+</ul>
+<p><strong>作业示例</strong></p>
+<ul>
+<li>基础（NMEL 40，FRAME 400）：矩阵变为（减少后的帧数）× 40。窗口变长时频率更细密，但帧数减少，时间上的变化会被抹平。<ul>
+<li>评分：看是否通过计算确认了帧数的变化。</li>
+</ul>
+</li>
+<li>挑战（亲自录音）：同一个声音录两次，相关系数也不是1。距离·噪声·音量·语速都会造成差异。<ul>
+<li>确认是否已取得个人信息使用同意。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-5"><h2><span class="no">3-5</span>文本</h2><p class="back"><a href="3-5_text.html#teach">返回 3-5 页面的教师提示</a></p><p><strong>检测题</strong></p>
+<ul>
+<li>Q1（1分）：0xAC01（“각”）。</li>
+<li>Q2（2分）：14字节 = 9 + 1 + 4。</li>
+<li>Q3（2分）：以单词频率为权重，统计相邻片段对的出现次数，合并次数最多的一对。</li>
+<li>Q4（2分）：按单词切分时为“모름”（未知），BPE 为 ["초파리", "들", "이"]。</li>
+<li>Q5（2分）：两者都是 {dog:1, bites:1, man:1}。需要位置信息。</li>
+</ul>
+<p><strong>作业示例</strong></p>
+<ul>
+<li>基础（添加蝴蝶句子）：预计“나비는”（蝴蝶）会与出现在相同位置、并与相同单词（꽃을“花”、날개가“翅膀”）一起出现的“꿀벌은”（蜜蜂）、“초파리는”（果蝇）等靠近。<ul>
+<li>数值要运行后确认。讲师应在上课前运行一次。</li>
+</ul>
+</li>
+<li>挑战（合并次数）：增加合并次数，词表会变大，每句的词元数会减少。<ul>
+<li>太大时，罕见词元增多，训练材料就会不足。</li>
+<li>太小时，句子变长，计算量增加。</li>
+<li>看是否用表格给出了依据。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-6"><h2><span class="no">3-6</span>时间序列·股价</h2><p class="back"><a href="3-6_timeseries_stock.html#teach">返回 3-6 页面的教师提示</a></p><p><strong>检测题</strong></p>
+<ul>
+<li>Q1（1分）：500对。</li>
+<li>Q2（2分）：10次。第一次训练300对，最后一次480对。</li>
+<li>Q3（1分）：约4个百分点。</li>
+<li>Q4（2分）：选择偏差·过拟合。测试区间只在最后用一次。</li>
+<li>Q5（3分）：如实用数字报告结果（1分），说明数据·设置条件（1分），提出泛化的局限和下一步实验（1分）。</li>
+</ul>
+<p><strong>作业示例</strong></p>
+<ul>
+<li>基础（按全部期间归一化）：数字会略有变化。变化方向取决于数据。<ul>
+<li>关键在于说明：无论结果变好还是变坏，“这是使用了未来信息的评估，不可信”。</li>
+</ul>
+</li>
+<li>挑战（预测波动大小）：第2节中，绝对值收益率的自相关比收益率更大（4/10 对 0/10）。因此可以预计，相对于基线的改进空间相对较大。<ul>
+<li>实际结果要运行后，用3个以上的种子报告。</li>
+</ul>
+</li>
+</ul>
+<p><strong>授课注意事项。</strong>在课程开始和结束时明确说明“这是教学示例，不是投资建议”。如果学生询问特定股票的买卖判断，要告知这超出了本页面的范围。</p></section>
+<section class="ans" id="a3-7"><h2><span class="no">3-7</span>序列模型</h2><p class="back"><a href="3-7_sequence_models.html#teach">返回 3-7 页面的教师提示</a></p><h3>检测题答案与评分标准</h3>
+<p><strong>Q1. 把数列取平均后输入前馈神经网络，会丢失什么信息？</strong></p>
+<ul>
+<li>参考答案：顺序会丢失。100 → 110 → 120 和 120 → 110 → 100 的平均值都是 110。</li>
+<li>评分（2分）：说出“顺序”得1分，举出例子得1分。</li>
+</ul>
+<p><strong>Q2. 向 h_t = tanh(x_t + 0.9·h_(t−1)) 输入 1, 0, 0 时，h_1、h_2 是多少？</strong></p>
+<ul>
+<li>答案：h_1 = tanh(1) ≈ <strong>0.762</strong>，h_2 = tanh(0.686) ≈ <strong>0.595</strong>。</li>
+<li>评分（2分）：各1分。四舍五入误差 ±0.002 视为正确。</li>
+</ul>
+<p><strong>Q3. 若 f = σ(5) ≈ 0.9933，且输入门完全关闭，第20格的细胞状态是初始值的多少倍？</strong></p>
+<ul>
+<li>答案：0.9933¹⁹ ≈ <strong>0.880倍</strong>。</li>
+<li>补充加分点：第5节的实际值（0.988 → 0.864，约0.875倍）略小，是因为输入门打开了 0.007，干扰信号（10个 −1、9个 +1）渗了进来。</li>
+<li>评分（2分）：幂次（19）正确得1分，数值正确得1分。写成20次方（0.874）只给1分。</li>
+</ul>
+<p><strong>Q4. 隐藏单元16、输入1时，SimpleRNN、LSTM、GRU（教科书公式）循环层的参数数量各是多少？</strong></p>
+<ul>
+<li>答案：一组 = 16 × 17 + 16 = 288个。<ul>
+<li>SimpleRNN：288个</li>
+<li>LSTM：4 × 288 = 1,152个</li>
+<li>GRU（教科书公式）：3 × 288 = 864个</li>
+</ul>
+</li>
+<li>补充加分点：Keras 默认的 GRU 多加48个偏置，共912个。与代码2的输出相同。</li>
+<li>评分（3分）：各1分。</li>
+</ul>
+<p><strong>Q5. LSTM 在 T = 100 时失败了。可以得出“LSTM 无法进行长期记忆”的结论吗？</strong></p>
+<ul>
+<li>参考答案：不可以。<ul>
+<li>像第5节那样适当设定权重，LSTM 就能保存长期记忆。</li>
+<li>失败意味着在30个轮次（epoch）内，梯度下降没有找到那样的权重。</li>
+<li>需要改变训练时间、学习率、数据量，并用多个种子重新实验，才能下结论。</li>
+</ul>
+</li>
+<li>评分（3分）<ul>
+<li>1分：区分了结构的能力与训练的结果。</li>
+<li>1分：提出了替代实验。</li>
+<li>1分：说明了重复（多种子）实验的必要性。</li>
+</ul>
+</li>
+</ul>
+<h3>Colab 作业参考答案</h3>
+<p><strong>基础作业：让输入门始终打开（i = σ(5)）</strong></p>
+<ul>
+<li>预期结果：每一格都有 0.993 × g(±0.995) 加到细胞状态上。细胞状态会随最近的干扰信号大幅摆动，即使把第一个信号反转，20格之后的值也几乎相同。</li>
+<li>学生必须引用用代码计算出的值。讲师应在上课前亲自运行一次，确认数字。</li>
+<li>好的结论示例：“输入门决定‘何时写入’。如果随时都写，旧信号就会被新信号覆盖。”</li>
+</ul>
+<p><strong>挑战作业：把 T = 100 的失败变为成功</strong></p>
+<ul>
+<li>值得尝试的做法<ul>
+<li>增加轮次（例如100以上）</li>
+<li>改变学习率（0.001、0.01）</li>
+<li>增加训练数据</li>
+<li>先从短数列开始训练，再逐渐加长（课程学习）</li>
+<li>改变隐藏层大小</li>
+</ul>
+</li>
+<li>结果要运行了才知道。用3个以上的种子做成表格；如果成功与否因种子而异，也要把这一点作为结果报告。</li>
+<li>评分要点：看是否每次只改变一项来比较，也要看是否只挑选了部分结果来报告。</li>
+</ul>
+<h3>课堂上常见的问题</h3>
+<ul>
+<li><strong>“教科书上说 RNN 在长数列上会失败，为什么 SimpleRNN 在 T = 50 时成功了？”</strong><ul>
+<li>因为这个任务比较简单（只需记住第一格），而且根据初始化方式，记忆有时能保持相当久。Keras 循环层默认用正交矩阵初始化循环权重。</li>
+<li>重要的是不要试图让实验结果去迎合教科书的说法，而要说明条件、如实报告。</li>
+</ul>
+</li>
+<li><strong>“GRU 为什么在 T = 50 时失败了？”</strong><ul>
+<li>在这个设置（30个轮次、学习率 0.005）下，两个种子都停留在瞎猜水平。仅凭这个实验无法断定原因。可以把它引向挑战作业。</li>
+</ul>
+</li>
+<li><strong>“遗忘门是 LSTM 一开始就有的吗？”</strong><ul>
+<li>不是。1997年的原始论文中没有，是 Gers 等人在2000年的论文中加上的（会议发表是在1999年）。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-8"><h2><span class="no">3-8</span>注意力与 Transformer</h2><p class="back"><a href="3-8_attention_transformer.html#teach">返回 3-8 页面的教师提示</a></p><h3>检测题答案与评分标准</h3>
+<p><strong>Q1. q = [2, 0.4]，k = [2, 0]，d_k = 2 时，分数 q·k / √d_k 是多少？</strong></p>
+<ul>
+<li>答案：q·k = 4，4 / √2 ≈ <strong>2.828</strong>。</li>
+<li>评分（2分）：内积1分，除法1分。</li>
+</ul>
+<p><strong>Q2. 分数 [1.98, 1.98, 2.772] 的 softmax 是多少？用它混合 V = [10,0], [0,10], [6,6] 的结果是多少？</strong></p>
+<ul>
+<li>答案：注意力 ≈ [0.238, 0.238, 0.525]，结果 ≈ <strong>[5.53, 5.53]</strong>。代码1的输出为 [5.525, 5.525]。</li>
+<li>评分（3分）：softmax 1分，加权和公式1分，数值1分。±0.01 视为正确。</li>
+</ul>
+<p><strong>Q3. 不用位置编码、只用自注意力时，打乱单词顺序后，每个单词的输出会怎样？</strong></p>
+<ul>
+<li>参考答案：完全相同。每个单词的输出只由它与其他所有单词的比较决定，而比较对象的集合与顺序无关，始终相同。在代码1中差异为 1e-16，也就是计算误差的水平。</li>
+<li>评分（2分）：结果1分，理由1分。</li>
+</ul>
+<p><strong>Q4. d = 512 的多头注意力层的参数数量是多少？把头数改为16个时有什么变化？</strong></p>
+<ul>
+<li>答案：4 × 512² + 4 × 512 = <strong>1,050,624个</strong>。改变头数也不变（只是每个头的宽度从 64 → 32）。</li>
+<li>评分（2分）：数值1分，“不变”及理由1分。</li>
+</ul>
+<p><strong>Q5. 长度从 4,096 变为 8,192 时，注意力分数的个数怎样变化？</strong></p>
+<ul>
+<li>答案：<strong>4倍</strong>（16,777,216 → 67,108,864）。1分。</li>
+</ul>
+<h3>Colab 作业参考答案</h3>
+<p><strong>基础作业：不除以 √d_k</strong></p>
+<ul>
+<li>在图书馆例子中，如果不除，分数会变为 √2 倍，注意力会更偏向一侧。</li>
+<li>把向量放大10倍，分数就变为100倍，softmax 几乎把1全部给一个格子。这样其余格子的梯度接近0，训练变得困难。</li>
+<li>让学生引用用代码计算出的数字。</li>
+</ul>
+<p><strong>挑战作业：去掉位置嵌入</strong></p>
+<ul>
+<li>预期：没有位置信息时，第一格无法与其他格区分。因此无法只挑出第一格来看，预计正确率会接近瞎猜水平。“给第一格的注意力”也会降到 1/T 附近。</li>
+<li>实际结果要让学生运行后确认。讲师应在上课前亲自运行一次。</li>
+<li>评分要点：看是否与第6节的“打乱顺序也相同”联系起来作了说明。</li>
+</ul>
+<h3>课堂上常见的问题</h3>
+<ul>
+<li><strong>“为什么 LSTM 的数字与 3-7 不同？”</strong><ul>
+<li>3-8 的代码2重新构建为固定输入长度的模型（3-7 长度不固定）。因此初始计算图和随机数的消耗略有不同。</li>
+<li>T = 100 的结果，3-7 为 48.9 / 47.2%，3-8 为 50.6 / 57.4%。两者都处于瞎猜水平，结论相同。</li>
+</ul>
+</li>
+<li><strong>“Transformer 赢了，那以后就不用 LSTM 了吗？”</strong><ul>
+<li>这个任务的答案是“第一格这一个”，所以对注意力特别有利。</li>
+<li>在实时逐格处理或数据较少时，循环模型仍在使用（3-7 第9节）。</li>
+</ul>
+</li>
+<li><strong>“原始论文基本型的参数数量是多少？”</strong><ul>
+<li>本页面用公式计算并展示了一个块（3,152,384个）的参数数量。</li>
+</ul>
+</li>
+</ul></section>
+</main>
+<footer><div class="wrap">
+  <p><b>深度学习 A to Z · 教师用答案</b> — 作者：Sangsun Ahn（M-Robo 公司代表）。</p>
+  <p class="cc"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans" target="_blank" rel="license noopener" aria-label="知识共享 署名-非商业性使用 4.0 国际"><span class="ccb">cc</span><span class="ccb">BY</span><span class="ccb">NC</span></a> 本作品采用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans" target="_blank" rel="license noopener">知识共享 署名-非商业性使用 4.0 国际许可协议（CC BY-NC 4.0）</a>公开。仅限非商业目的，可自由分享和改编，但<b>必须注明出处</b>。出处标注示例：Sangsun Ahn，《深度学习 A to Z · 教师用答案》，AI Model Review。</p>
+</div></footer>
+<script>
+/* ══ 페이지 안 바로가기: 해시 이동 대신 스크립트로 스크롤 (GitHub 미리보기·iframe에서도 작동) ══ */
+(function(){
+  function go(id){var el=document.getElementById(id); if(!el) return false;
+    var nav=document.querySelector('nav.top'), off=(nav?nav.offsetHeight:0)+8;
+    var y=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-off;
+    var smooth=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    try{window.scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});}catch(e){window.scrollTo(0,Math.max(0,y));}
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+    if(el.tabIndex<0&&!/^(A|BUTTON|INPUT|SECTION|HEADER)$/.test(el.tagName)){} return true;}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=decodeURIComponent(a.getAttribute('href').slice(1)); if(!id) return;
+    if(go(id)) e.preventDefault();});
+  window.addEventListener('load',function(){ if(location.hash){var id=decodeURIComponent(location.hash.slice(1)); setTimeout(function(){go(id);},60);}});
+})();
+</script>
+<div class="lang-pick" id="langPick"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="语言: 中文"><span aria-hidden="true">🌐</span>中文</button><ul hidden><li><a href="../answers.html" hreflang="ko" lang="ko" data-l="ko">한국어</a></li><li><a href="../en/answers.html" hreflang="en" lang="en" data-l="en">English</a></li><li><a href="../zh/answers.html" hreflang="zh-CN" lang="zh-CN" data-l="zh" aria-current="true">中文</a></li><li><a href="../ja/answers.html" hreflang="ja" lang="ja" data-l="ja">日本語</a></li><li><a href="../uz/answers.html" hreflang="uz" lang="uz" data-l="uz">Oʻzbekcha</a></li><li><a href="../ru/answers.html" hreflang="ru" lang="ru" data-l="ru">Русский</a></li></ul></div><script>(function(){var p=document.getElementById("langPick"),b=p.querySelector("button"),u=p.querySelector("ul");function t(o){u.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");}b.addEventListener("click",function(e){e.stopPropagation();t(u.hidden);});document.addEventListener("click",function(){t(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});u.addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;try{localStorage.setItem("amr-lang",a.getAttribute("data-l"));}catch(x){}if(location.hash){e.preventDefault();location.href=a.getAttribute("href")+location.hash;}});})();</script>
+</body>
+</html>

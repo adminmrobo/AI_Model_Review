@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><link rel="alternate" hreflang="ko" href="../answers.html"><link rel="alternate" hreflang="en" href="../en/answers.html"><link rel="alternate" hreflang="zh-CN" href="../zh/answers.html"><link rel="alternate" hreflang="ja" href="../ja/answers.html"><link rel="alternate" hreflang="uz" href="../uz/answers.html"><link rel="alternate" hreflang="ru" href="../ru/answers.html"><script>(function(){var L=["ko","en","zh","ja","uz","ru"],cur="ja",f="answers.html",w=null,q=location.search.match(/[?&]lang=([a-z]{2})/);try{if(q&&L.indexOf(q[1])>=0)localStorage.setItem("amr-lang",q[1]);w=localStorage.getItem("amr-lang");}catch(e){}if(q&&L.indexOf(q[1])>=0)w=q[1];if(!w&&cur==="ko"){var n=navigator.languages||[navigator.language||""];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().slice(0,2);if(L.indexOf(c)>=0){w=c;break;}}}if(!w||w===cur||L.indexOf(w)<0||(cur!=="ko"&&!q))return;var up=cur==="ko"?"":"../";location.replace(up+(w==="ko"?"":w+"/")+f+location.hash);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>教育者用解答 — ディープラーニング A to Z | AI Model Review</title>
+<meta name="description" content="ディープラーニング A to Z 3-1〜3-8の確認問題の採点基準とColab課題の解答例。">
+<meta name="author" content="Sangsun Ahn">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" rel="stylesheet">
+<style>
+:root{--night:#1b1533;--deep:#120e24;--panel:#261e45;--line:#3d3170;--text:#efe9ff;--muted:#b5abd6;--violet:#b07cff;--pink:#ff86b8;--cyan:#57d0dc;--amber:#ffc65c;--pix:"Galmuri11","Noto Sans JP","IBM Plex Sans KR",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--night);color:var(--text);font-family:"Noto Sans JP","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.75}
+a{color:var(--cyan)}:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:var(--deep);border-bottom:4px solid var(--line);padding:36px 0 26px}
+header h1{font-family:var(--pix);font-weight:400;font-size:clamp(24px,3.4vw,34px);margin:0 0 6px;text-shadow:3px 3px 0 #5a2fa8}
+header p{margin:0;color:var(--muted)}
+.notice{margin-top:14px;background:var(--panel);border-left:4px solid var(--amber);padding:10px 14px;font-size:15px}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(27,21,51,.96);border-bottom:2px solid var(--line)}
+nav.top .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 20px}
+nav.top a{font-family:var(--pix);font-size:13px;text-decoration:none;color:var(--text);border:2px solid var(--line);padding:4px 8px;background:var(--panel)}
+nav.top a:hover{border-color:var(--cyan)} nav.top a.home{border-color:var(--violet)}
+.ans{padding:40px 0 10px;border-bottom:2px dashed var(--line)}
+.ans h2{font-family:var(--pix);font-weight:400;font-size:24px;margin:0 0 4px;display:flex;gap:12px;align-items:center}
+.ans h2 .no{border:3px solid var(--violet);padding:2px 8px;font-size:17px}
+.ans h3{font-size:18px;color:var(--amber);margin:26px 0 8px}
+.ans .back{margin:0 0 6px;font-size:14px}
+.ans li{margin:3px 0}.ans ul,.ans ol{padding-left:22px}
+.ans table{border-collapse:collapse;margin:10px 0;font-size:15px;display:block;overflow-x:auto}
+.ans th,.ans td{border:1px solid var(--line);padding:6px 10px;text-align:left}.ans th{background:var(--panel)}
+code{background:var(--panel);padding:1px 5px;border-radius:3px;font-size:.92em}
+footer{margin-top:40px;padding:26px 0 44px;background:var(--deep);border-top:4px solid var(--line);color:var(--muted);font-size:14px}
+footer b{color:var(--text)}
+</style>
+<style id="cc-style">.cc{margin-top:14px;padding-top:12px;border-top:1px solid rgba(181,171,214,.3);font-size:13px;line-height:1.7}.cc .ccb{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:0 5px;margin-right:4px;font-weight:700;font-size:11.5px;letter-spacing:.02em}.cc a{color:inherit}</style>
+<style>h1,h2,h3,h4,p,li,td,th,dd,dt,figcaption,summary,label,button,span,div,a{word-break:normal!important;line-break:strict}</style><style>.lang-pick{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;font:600 14px/1.2 system-ui,sans-serif}.lang-pick>button{display:flex;gap:6px;align-items:center;background:#25283a;color:#eceaf3;border:1px solid #4a4f6e;border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);font:inherit}.lang-pick>button:hover{border-color:#f1b646}.lang-pick ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;background:#1c1e2d;border:1px solid #4a4f6e;border-radius:12px;min-width:150px;box-shadow:0 10px 30px rgba(0,0,0,.5)}.lang-pick ul[hidden]{display:none}.lang-pick a{display:block;padding:8px 12px;border-radius:8px;color:#eceaf3;text-decoration:none}.lang-pick a:hover,.lang-pick a:focus-visible{background:#25283a}.lang-pick a[aria-current]{color:#f1b646}@media print{.lang-pick{display:none}}</style></head>
+<body>
+<header><div class="wrap">
+  <h1>教育者用解答</h1>
+  <p>ディープラーニング A to Z 3-1〜3-8の確認問題の採点基準とColab課題の解答例</p>
+  <p class="notice">学習者は、各回の確認問題をまず自分で解いてから確認してください。課題の実行結果は環境によって少し変わることがあるため、講師は授業の前に一度自分で実行して数値を確かめておきます。</p>
+</div></header>
+<nav class="top" aria-label="各回へのショートカット"><div class="wrap"><a class="home" href="index.html">トップページ</a><a href="#a3-1">3-1 AIはどう動くのか</a><a href="#a3-2">3-2 ニューラルネットワークの部品</a><a href="#a3-3">3-3 画像とCNN</a><a href="#a3-4">3-4 音声</a><a href="#a3-5">3-5 テキスト</a><a href="#a3-6">3-6 時系列・株価</a><a href="#a3-7">3-7 系列モデル</a><a href="#a3-8">3-8 アテンションとトランスフォーマー</a></div></nav>
+<main class="wrap">
+<section class="ans" id="a3-1"><h2><span class="no">3-1</span>AIはどう動くのか</h2><p class="back"><a href="3-1_how_ai_works.html#teach">3-1ページの教育者向けTIPに戻る</a></p><h3>確認問題の解答と採点基準</h3>
+<p><strong>Q1. 機械学習とディープラーニングを、「特徴」という言葉を使ってそれぞれ一文で区別せよ。</strong></p>
+<ul>
+<li>模範解答：機械学習（従来の方式）では人が特徴を決め、機械は特徴ごとに掛ける重みを学ぶ。ディープラーニングでは、元のデータから特徴まで機械が学ぶ。</li>
+<li>採点（3点）<ul>
+<li>2点：「誰が特徴を決めるか」で二つの方式を区別した。</li>
+<li>1点：ディープラーニングも機械学習の一分野であるという関係に触れたか、例（重み3個 対 1,741個）を挙げた。</li>
+</ul>
+</li>
+<li>減点：「ディープラーニングでは人は何もしない」と書いたら1点を引く。人はデータとモデルの構造を決める。</li>
+</ul>
+<p><strong>Q2. 特徴Aは、学習データに「照明が暗くなる」場面があるのに、なぜその場面を間違えるのか？</strong></p>
+<ul>
+<li>模範解答：特徴A（面積の変化、中心の移動）に変換すると、照明の場面は「面積が大きく増え、中心はそのまま」の点になる。この点は「接近」と同じ側の、さらに遠い位置に置かれる。直線1本では接近と切り分けられない。数値2個に減らした時点で区別に必要な情報が失われたため、データを増やしても直らない。</li>
+<li>採点（3点）<ul>
+<li>1点：特徴平面で、照明の場面が接近の側に置かれる。</li>
+<li>1点：直線1本（線形分類器）では切り分けられない。</li>
+<li>1点：情報は特徴を作る段階ですでに失われている。データを増やすのではなく、特徴を変える必要がある。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Q3. ヒトの感覚のうち、視床を経由せずに大脳皮質へ直接向かうものは？</strong></p>
+<ul>
+<li>正解：嗅覚（嗅上皮 → 嗅球 → 梨状皮質）。1点。</li>
+<li>補足するとよい点：梨状皮質から眼窩前頭皮質へ向かう際には、視床を経由する経路もある（Sela ほか, 2009）。</li>
+</ul>
+<p><strong>Q4. ショウジョウバエのLPLC2とセクション3の特徴Bは、どこが似ているか？</strong></p>
+<ul>
+<li>模範解答：どちらも「物体が四方に大きくなること」と「ただ暗くなること」を区別する。LPLC2は動きのない暗化には反応しない（Klapoetke ほか, 2017）。違うのは作られ方である。特徴Bは人が設計したもので、LPLC2は発生の過程でできた回路である。</li>
+<li>採点（2点）：似ている点1点、違う点1点。</li>
+</ul>
+<p><strong>Q5. 「学習データで正解率100%が出たから、現場でもうまくいくだろう」という判断の問題点は？</strong></p>
+<ul>
+<li>模範解答：学習データになかった状況に出会うと間違える可能性がある。セクション4の「照明変化なし」がその例である。学習損失は0.011まで下がったが、照明の場面は20個中0個しか当たらなかった。しかもそれらの場面に対しても、確率0.99で「避けよ」と確信していた。初めて見るテストデータで実力を測り、現場で起こりうる状況が学習データに含まれているかを確かめる必要がある。</li>
+<li>採点（3点）<ul>
+<li>1点：学習時の成績と実際の性能を区別した。</li>
+<li>1点：データになかった状況という原因を指摘した。</li>
+<li>1点：対策を一つ以上示した（テストデータ、現場データの収集、モニタリング）。</li>
+</ul>
+</li>
+</ul>
+<h3>Colab課題の解答例</h3>
+<p><strong>基本課題：「斜めに接近」を追加</strong></p>
+<ul>
+<li>コード1の<code>make_episode</code>に新しい種類を追加する。例：影が大きくなりながら中心が3〜5マス移動する。正解は1（避けるべき）とする。</li>
+<li>予想される結果<ul>
+<li>特徴A：中心の移動が大きいと「通過」側に分類される。正解率が下がる可能性が高い。</li>
+<li>特徴B：輪郭が長くなるので、おおむね正解する。</li>
+<li>ニューラルネットワーク：学習データにこの場面が含まれていれば正解し、なければ一部を間違える。</li>
+</ul>
+</li>
+<li>採点のポイント<ul>
+<li>結果の表がある。</li>
+<li>「特徴が持つ情報」と「データが含む状況」で理由を説明した。</li>
+<li>実際の数値はシードによって異なるので、数値そのものではなく解釈を見る。</li>
+</ul>
+</li>
+</ul>
+<p><strong>チャレンジ課題：自分の業務データ</strong></p>
+<ul>
+<li>よい答案は次を備えている。<ul>
+<li>特徴3個とその根拠（業務知識）がある。</li>
+<li>学習例の数ごとの比較グラフがある。</li>
+<li>「例が少ないときは特徴方式、十分なときはニューラルネットワーク方式」のように、データ量に応じた結論を出した。</li>
+<li>テストデータを最後に一度だけ使った。</li>
+</ul>
+</li>
+<li>よくある間違い<ul>
+<li>特徴を計算するときにテストデータの情報を混ぜてしまう（データリーク）。</li>
+<li>正解率だけを見て、適合率・再現率を見ない（不均衡データの場合。3-2 セクション9）。</li>
+</ul>
+</li>
+</ul>
+<h3>授業中によく出る質問</h3>
+<ul>
+<li><strong>「じゃあ、ディープラーニングは機械学習より劣っているんですか？」</strong><ul>
+<li>そうではない。問題とデータ量しだいである。</li>
+<li>写真・音・文章のように、特徴を言葉で決めにくいデータでは、ディープラーニングのほうがはるかに強い。</li>
+<li>このページの場面はわざと単純に作ってあるので、よい特徴を人が簡単に思いつけた。</li>
+</ul>
+</li>
+<li><strong>「人間の脳も誤差逆伝播法を使っているんですか？」</strong><ul>
+<li>確認されていない。似たことを別の方法で実現できるという仮説が研究されている（Lillicrap ほか, 2020）。</li>
+</ul>
+</li>
+<li><strong>「ブラウザの数値とColabの数値は、なぜ少し違うんですか？」</strong><ul>
+<li>二つの環境は乱数生成器が異なるため、場面が少しずつ違う。</li>
+<li>特徴Aの正解率はブラウザで86.9%（接近も1個取りこぼす）、Colabで87.5%である。</li>
+<li>結論は同じである。照明の場面は、どちらの環境でもすべて間違える。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-2"><h2><span class="no">3-2</span>ニューラルネットワークの部品</h2><p class="back"><a href="3-2_building_blocks.html#teach">3-2ページの教育者向けTIPに戻る</a></p><h3>確認問題の解答と採点基準</h3>
+<p><strong>Q1. 活性化関数のないニューラルネットワークに隠れ層を10層重ねると、どんな境界を描けるか？</strong>（2点）</p>
+<ul>
+<li>正解：直線（高次元では平面）1本だけである。</li>
+<li>採点：結論1点。線形変換を何度合成しても一つの線形変換になるという理由（W₂W₁x = Wx）1点。</li>
+</ul>
+<p><strong>Q2. シグモイドの代わりにReLUを使うと勾配消失が減るのはなぜか？</strong>（2点）</p>
+<ul>
+<li>正解：シグモイドの勾配は最大0.25なので、層ごとに掛け合わされて急速に小さくなる。ReLUは正の区間の勾配が1なので、さかのぼっても小さくならない。</li>
+<li>採点：0.25と1の比較1点、「掛け合わされて小さくなる」という説明1点。負の区間の勾配が0になること（死んだニューロン）を補足するとよい。</li>
+</ul>
+<p><strong>Q3. 正解が1、予測が0.41のとき、MSE損失と∂L/∂yは？</strong>（2点）</p>
+<ul>
+<li>正解：L = (1 − 0.41)² = 0.3481 ≈ 0.35、∂L/∂y = −2 × (1 − 0.41) = −1.18。</li>
+<li>採点：各1点。∂L/∂yは符号まで合っている必要がある。</li>
+</ul>
+<p><strong>Q4. 学習損失は下がり続け、検証損失はある時点から上がる。どんな状態で、何をすべきか？</strong>（3点）</p>
+<ul>
+<li>正解：過学習である。</li>
+<li>採点：過学習と診断したら1点、検証損失が最も低かった時点のモデルを使う早期終了（early stopping）1点、ドロップアウト・重み減衰・データ拡充のうち一つ以上1点。</li>
+</ul>
+<p><strong>Q5. 不良率10%の検査で「すべて正常」と答えるモデルの正解率と再現率は？</strong>（2点）</p>
+<ul>
+<li>正解：正解率90%、再現率0%。</li>
+<li>採点：各1点。「不均衡データでは正解率だけを見てはいけない」と補足するとよい。</li>
+</ul>
+<h3>Colab課題の解答例</h3>
+<p><strong>基本課題：tanh → ReLU、隠れニューロン4・16・64</strong></p>
+<ul>
+<li>変更箇所は2行である。活性化関数をmax(0, z)に、その微分を「z &gt; 0なら1、それ以外は0」に変える。</li>
+<li>結果は実行して表にまとめる。ニューロンを増やすと学習時の正解率はおおむね上がるが、検証時の正解率はある時点から上がらなくなったり、下がったりすることがある。</li>
+<li>採点のポイント：検証時の正解率で設定を選んだか（学習時の正解率で選んだら減点）、理由を過学習と結びつけて説明したかを見る。</li>
+</ul>
+<p><strong>チャレンジ課題：自分の業務データで6:2:2評価</strong></p>
+<ul>
+<li>学習データだけで学習し、検証データで設定としきい値を選び、テストデータは最後に一度だけ使う。</li>
+<li>しきい値0.5が妥当かどうかは、業務上のコストで判断する。たとえば不良を見逃すコストが大きければ、しきい値を下げて再現率を上げ、それに伴って増える誤警報（適合率の低下）もあわせて報告する。</li>
+<li>採点のポイント：三つの指標をすべて報告したか、しきい値判断の根拠が業務状況に合っているかを見る。個人情報を含むデータは使わないか、匿名化したかを確認する。</li>
+</ul></section>
+<section class="ans" id="a3-3"><h2><span class="no">3-3</span>画像とCNN</h2><p class="back"><a href="3-3_image_cnn.html#teach">3-3ページの教育者向けTIPに戻る</a></p><h3>確認問題の解答と採点基準</h3>
+<p><strong>Q1. 224×224のカラー写真を隠れニューロン1,000個のMLPに入れると、第1層の重みはいくつか？（バイアスを除く）</strong></p>
+<ul>
+<li>正解：224 × 224 × 3 = 150,528、× 1,000 = <strong>150,528,000個</strong>（約1億5千万個）。</li>
+<li>補足するとよい点：3×3のカラーフィルター64個からなる畳み込み層は 3 × 3 × 3 × 64 = 1,728個（バイアスを含めて1,792個）である。</li>
+<li>採点（2点）：式1点、答え1点。チャンネル数3を抜かしたら1点を引く。</li>
+</ul>
+<p><strong>Q2. 6×6の入力に3×3フィルターをパディングなし、ストライド1で適用すると、出力サイズは？</strong></p>
+<ul>
+<li>正解：(6 − 3 + 1) × (6 − 3 + 1) = <strong>4×4</strong>。1点。</li>
+</ul>
+<p><strong>Q3. セクション5の縦エッジフィルターを左上の位置に置いたとき、出力が−3になる理由を計算で示せ。</strong></p>
+<ul>
+<li>模範解答：重なった部分の2行目は[0, 3, 3]、フィルターの各行は[1, 0, −1]である。0×1 + 3×0 + 3×(−1) = −3となる。1行目・3行目はすべて0である。</li>
+<li>採点（2点）：重なった部分を正しく選べば1点、マスどうしを掛けて足す計算が合っていれば1点。</li>
+</ul>
+<p><strong>Q4. 2×2の窓[6, 3, 0, 3]の最大プーリング値と平均プーリング値は？</strong></p>
+<ul>
+<li>正解：最大 <strong>6</strong>、平均 (6 + 3 + 0 + 3) / 4 = <strong>3</strong>。各1点。</li>
+</ul>
+<p><strong>Q5. ピクセルを同じ規則で並べ替えて最初から学習すると、MLPとCNNのどちらが大きく下がるか。またそれはなぜか？</strong></p>
+<ul>
+<li>模範解答：CNNのほうが大きく下がる。<ul>
+<li>CNNは「近いピクセルどうしは関連がある」という仮定を構造（3×3フィルター、プーリング）に組み込んでいる。並べ替えるとこの仮定が崩れる。</li>
+<li>MLPはもともとピクセルの位置関係を使わないので、ほとんど変わらない。</li>
+<li>実際の結果：ブラウザではMLP 92.7% → 91.3%、CNN 78.7% → 67.3%。Colabの3シード平均ではMLP 88.4% → 90.0%、CNN 80.2% → 65.8%。</li>
+</ul>
+</li>
+<li>採点（3点）<ul>
+<li>1点：結果（CNNのほうが大きく下がる）。</li>
+<li>1点：CNNの仮定（近傍関係）を説明した。</li>
+<li>1点：条件（同じ規則で並べ替えて<strong>最初から学習</strong>）を正確に述べた。「学習済みモデルに並べ替えた画像を入れる」と書いた場合、この1点は与えない。</li>
+</ul>
+</li>
+</ul>
+<h3>Colab課題の解答例</h3>
+<p><strong>基本課題：斜めフィルターの追加</strong></p>
+<ul>
+<li>フィルターの例：<code>[[0,1,1],[-1,0,1],[-1,-1,0]]</code>（右上が明るく左下が暗い斜めの境界）。</li>
+<li>
+<p>コード1で計算した出力4×4：
+  <code>3   0   0  -6
+   6   6   6   0
+   0   0   0   0
+   3   0  -3   0</code></p>
+</li>
+<li>
+<p>最大値は<strong>6</strong>で、2行目の1・2・3マス目に現れる。斜めの画ではなく、<strong>7の上辺のすぐ下の境界</strong>である。このフィルターは「上・右が明るく、下・左が暗い」場所に反応するため、横の境界にも強く反応する。</p>
+</li>
+<li>よい答案は、このように予想（斜めの画）と実際の結果が異なるとき、数値を根拠に理由を説明する。フィルターの名前だけで反応位置を推測すると間違うことがある、というのがこの課題の学びである。</li>
+<li>採点のポイント<ul>
+<li>フィルターの数値の配置と反応位置を結びつけて説明した。</li>
+<li>数値はコードで計算した値を引用した。</li>
+</ul>
+</li>
+</ul>
+<p><strong>チャレンジ課題：データ拡張</strong></p>
+<ul>
+<li>予想される傾向<ul>
+<li>学習画像に1〜2マスずらした画像を混ぜると、両モデルとも1〜2マスでの正解率が上がる。</li>
+<li>MLPも大きく上がるが、それはずらした位置をデータとして覚えるからである。</li>
+<li>学習になかった3マスでは、依然としてCNNのほうが下がり方が小さい傾向が期待される。実際の数値は学生が実行した結果を基準に見る。</li>
+</ul>
+</li>
+<li>よい結論の例：「構造（重み共有・プーリング）はデータがなくても小さな移動に揺らぎにくくし、拡張は見せた範囲の移動にだけ耐えられるようにする。実務では両方を併用する。」</li>
+</ul>
+<h3>授業中によく出る質問</h3>
+<ul>
+<li><strong>「CNNは中央の画像ではMLPより低いですよね？」</strong><ul>
+<li>そのとおり。このページのように学習とテストで位置が同じで、データが少ない場合はMLPが勝つこともある。CNNはパラメーターが4.5分の1と少ない。</li>
+<li>CNNの長所は、少ないパラメーターと移動に対する頑健さである。実際の写真のように位置がばらばらなデータで効果が大きい。</li>
+</ul>
+</li>
+<li><strong>「CNNは位置が変わっても同じように認識できるんじゃないんですか？」</strong><ul>
+<li>そうではない。2マスずらすとCNNも78.7% → 69.3%に下がる（ブラウザ基準）。</li>
+<li>大きなCNNでも、数ピクセルの移動で答えが変わることがある（Azulay &amp; Weiss, 2019）。「比較的揺らぎにくい」というのが正確である。</li>
+</ul>
+</li>
+<li><strong>「1マスずらしたときは、なぜMLPのほうが高いんですか？」</strong><ul>
+<li>シード1つ・テスト150枚という小さな実験なので生じるばらつきである。</li>
+<li>Colabの3シード平均では、1マスでもCNN（64.2%）がMLP（54.7%）より高かった。結論は何度も繰り返した結果から出す、ということもあわせて教える。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-4"><h2><span class="no">3-4</span>音声</h2><p class="back"><a href="3-4_speech.html#teach">3-4ページの教育者向けTIPに戻る</a></p><p><strong>確認問題</strong></p>
+<ul>
+<li>Q1（1点）：4,000 Hz。</li>
+<li>Q2（1点）：3 Hz。</li>
+<li>Q3（2点）：約48 dB（理論値 49.92 → 98.08 dB）。式1点、値1点。</li>
+<li>Q4（2点）：98フレーム。(8,000 − 200) ÷ 80 = 97.5 → 切り捨てて97 + 1 = 98。「97」と答えたら1点。</li>
+<li>Q5（2点）：1,960個、約4分の1。</li>
+</ul>
+<p><strong>課題の例</strong></p>
+<ul>
+<li>基本（NMEL 40、FRAME 400）：行列が（フレーム数が減る）× 40に変わる。窓が長いと周波数は細かくなるが、フレーム数が減って時間変化がぼやける。<ul>
+<li>採点：フレーム数の変化を計算で確認したかを見る。</li>
+</ul>
+</li>
+<li>チャレンジ（自分で録音）：同じ音を2回録音しても相関は1にならない。距離・雑音・音量・話す速さが差を生む。<ul>
+<li>個人情報の同意を得たかを確認する。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-5"><h2><span class="no">3-5</span>テキスト</h2><p class="back"><a href="3-5_text.html#teach">3-5ページの教育者向けTIPに戻る</a></p><p><strong>確認問題</strong></p>
+<ul>
+<li>Q1（1点）：0xAC01（「각」）。</li>
+<li>Q2（2点）：14バイト = 9 + 1 + 4。</li>
+<li>Q3（2点）：単語の頻度を重みとして、隣り合う断片のペアの出現回数を数え、最も多いペアを結合する。</li>
+<li>Q4（2点）：単語単位では「不明」、BPEでは["초파리", "들", "이"]。</li>
+<li>Q5（2点）：どちらも{dog:1, bites:1, man:1}。位置情報が必要である。</li>
+</ul>
+<p><strong>課題の例</strong></p>
+<ul>
+<li>基本（チョウの文を追加）：「나비는」（チョウは）は、同じ位置に来て同じ単語（꽃을、날개가）と一緒に現れる「꿀벌은」「초파리는」などに近づくと予想される。<ul>
+<li>値は実行して確認する。講師は授業の前に一度実行しておく。</li>
+</ul>
+</li>
+<li>チャレンジ（結合回数）：結合を増やすと語彙が大きくなり、1文あたりのトークン数が減る。<ul>
+<li>大きすぎるとまれなトークンが増え、学習データが不足する。</li>
+<li>小さすぎると文が長くなり、計算量が増える。</li>
+<li>根拠を表で示したかを見る。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-6"><h2><span class="no">3-6</span>時系列・株価</h2><p class="back"><a href="3-6_timeseries_stock.html#teach">3-6ページの教育者向けTIPに戻る</a></p><p><strong>確認問題</strong></p>
+<ul>
+<li>Q1（1点）：500ペア。</li>
+<li>Q2（2点）：10回。最初の学習は300ペア、最後は480ペア。</li>
+<li>Q3（1点）：約4ポイント。</li>
+<li>Q4（2点）：選択バイアス・過学習。テスト区間は最後に一度だけ使う。</li>
+<li>Q5（3点）：結果を数値のまま報告（1点）、データ・設定の条件を明記（1点）、一般化の限界と次の実験を提示（1点）。</li>
+</ul>
+<p><strong>課題の例</strong></p>
+<ul>
+<li>基本（全期間で正規化）：数値が少し変わる。方向はデータによって異なる。<ul>
+<li>要点は、結果がよくなっても悪くなっても「未来の情報を使った評価なので信頼できない」と説明することである。</li>
+</ul>
+</li>
+<li>チャレンジ（変動の大きさの予測）：セクション2では、絶対値リターンの自己相関がリターンより大きかった（4/10 対 0/10）。そのため、ベースラインに対する改善の余地が相対的に大きいと予想できる。<ul>
+<li>実際の結果は、実行してシード3個以上で報告させる。</li>
+</ul>
+</li>
+</ul>
+<p><strong>授業運営上の注意。</strong> 授業の始めと終わりに「教育用の例であり、投資助言ではない」とはっきり伝える。学生が特定銘柄の売買判断を尋ねたら、このページの範囲外であることを伝える。</p></section>
+<section class="ans" id="a3-7"><h2><span class="no">3-7</span>系列モデル</h2><p class="back"><a href="3-7_sequence_models.html#teach">3-7ページの教育者向けTIPに戻る</a></p><h3>確認問題の解答と採点基準</h3>
+<p><strong>Q1. 数列を平均してフィードフォワードニューラルネットワークに入れると、どんな情報が失われるか？</strong></p>
+<ul>
+<li>模範解答：順序が失われる。100 → 110 → 120 と 120 → 110 → 100 は、平均がどちらも110である。</li>
+<li>採点（2点）：「順序」と答えたら1点、例を挙げたら1点。</li>
+</ul>
+<p><strong>Q2. h_t = tanh(x_t + 0.9·h_(t−1)) に1, 0, 0を入れると、h_1、h_2は？</strong></p>
+<ul>
+<li>正解：h_1 = tanh(1) ≈ <strong>0.762</strong>、h_2 = tanh(0.686) ≈ <strong>0.595</strong>。</li>
+<li>採点（2点）：各1点。四捨五入による±0.002は正解とみなす。</li>
+</ul>
+<p><strong>Q3. f = σ(5) ≈ 0.9933で、入力ゲートが完全に閉じているとき、20番目のマスのセル状態は最初の値の何倍か？</strong></p>
+<ul>
+<li>正解：0.9933¹⁹ ≈ <strong>0.880倍</strong>。</li>
+<li>補足するとよい点：セクション5の実際の値（0.988 → 0.864、約0.875倍）が少し小さいのは、入力ゲートが0.007だけ開いていて、妨害信号（−1が10個、+1が9個）が漏れ込んだためである。</li>
+<li>採点（2点）：累乗の回数（19）が合っていれば1点、値が合っていれば1点。20乗（0.874）と書いた場合は1点のみ与える。</li>
+</ul>
+<p><strong>Q4. 隠れ16、入力1のとき、SimpleRNN、LSTM、GRU（教科書の式）の再帰層のパラメーター数は？</strong></p>
+<ul>
+<li>正解：1組 = 16 × 17 + 16 = 288個。<ul>
+<li>SimpleRNN：288個</li>
+<li>LSTM：4 × 288 = 1,152個</li>
+<li>GRU（教科書の式）：3 × 288 = 864個</li>
+</ul>
+</li>
+<li>補足するとよい点：Kerasの標準のGRUはバイアス48個が加わって912個になる。コード2の出力と一致する。</li>
+<li>採点（3点）：各1点。</li>
+</ul>
+<p><strong>Q5. LSTMがT = 100で失敗した。「LSTMは長い記憶ができない」と結論づけてよいか？</strong></p>
+<ul>
+<li>模範解答：よくない。<ul>
+<li>セクション5のように重みを適切に決めれば、LSTMは長い記憶を保持できる。</li>
+<li>失敗は、30エポックのうちに勾配降下法がその重みを見つけられなかったという意味である。</li>
+<li>学習時間、学習率、データ量を変え、複数のシードで再実験してはじめて結論を出せる。</li>
+</ul>
+</li>
+<li>採点（3点）<ul>
+<li>1点：構造の能力と学習の結果を区別した。</li>
+<li>1点：代わりの実験を提示した。</li>
+<li>1点：繰り返し（シード）実験の必要性を述べた。</li>
+</ul>
+</li>
+</ul>
+<h3>Colab課題の解答例</h3>
+<p><strong>基本課題：入力ゲートを常に開く（i = σ(5)）</strong></p>
+<ul>
+<li>予想される結果：毎マス 0.993 × g(±0.995) がセル状態に加えられる。セル状態は直近の妨害信号に合わせて大きく揺れ、最初の信号を反転しても20マス後の値はほぼ同じになる。</li>
+<li>学生は必ずコードで計算した値を引用しなければならない。講師は授業の前に一度自分で実行して数値を確かめておく。</li>
+<li>よい結論の例：「入力ゲートは『いつ書き込むか』を決める。いつでも書き込むと、古い信号が新しい信号に上書きされる。」</li>
+</ul>
+<p><strong>チャレンジ課題：T = 100の失敗を成功に変える</strong></p>
+<ul>
+<li>試す価値のあること<ul>
+<li>エポックを増やす（例：100以上）</li>
+<li>学習率を変える（0.001、0.01）</li>
+<li>学習データを増やす</li>
+<li>短い数列から学習し、少しずつ長くする（カリキュラム学習）</li>
+<li>隠れ層のサイズを変える</li>
+</ul>
+</li>
+<li>結果は実行してみないとわからない。シード3個以上で表を作り、成功・失敗がシードによって分かれるなら、それも結果として報告させる。</li>
+<li>採点のポイント：変更点を一度に一つずつ比較したかを見る。都合のよい結果だけを選んで報告していないかも見る。</li>
+</ul>
+<h3>授業中によく出る質問</h3>
+<ul>
+<li><strong>「教科書にはRNNは長い数列で失敗すると書いてあったのに、なぜSimpleRNNはT = 50で成功したんですか？」</strong><ul>
+<li>課題が比較的単純で（最初の1マスだけを記憶）、初期化の方法によっては記憶がかなり長く保たれることもある。Kerasの再帰層は、再帰重みを直交行列で初期化するのが標準である。</li>
+<li>実験結果を教科書の記述に合わせようとせず、条件を明記してそのまま報告することが大切である。</li>
+</ul>
+</li>
+<li><strong>「GRUはT = 50でなぜ失敗したんですか？」</strong><ul>
+<li>この設定（30エポック、学習率0.005）では、二つのシードとも当て推量のレベルにとどまった。原因はこの実験だけでは断定できない。チャレンジ課題につなげる。</li>
+</ul>
+</li>
+<li><strong>「忘却ゲートはLSTMに最初からあったんですか？」</strong><ul>
+<li>そうではない。1997年の元論文にはなく、Gersらが2000年の論文で追加した（学会発表は1999年）。</li>
+</ul>
+</li>
+</ul></section>
+<section class="ans" id="a3-8"><h2><span class="no">3-8</span>アテンションとトランスフォーマー</h2><p class="back"><a href="3-8_attention_transformer.html#teach">3-8ページの教育者向けTIPに戻る</a></p><h3>確認問題の解答と採点基準</h3>
+<p><strong>Q1. q = [2, 0.4]、k = [2, 0]、d_k = 2のとき、スコア q·k / √d_k は？</strong></p>
+<ul>
+<li>正解：q·k = 4、4 / √2 ≈ <strong>2.828</strong>。</li>
+<li>採点（2点）：内積1点、割り算1点。</li>
+</ul>
+<p><strong>Q2. スコア[1.98, 1.98, 2.772]のソフトマックスと、V = [10,0], [0,10], [6,6]を混ぜた結果は？</strong></p>
+<ul>
+<li>正解：アテンション ≈ [0.238, 0.238, 0.525]、結果 ≈ <strong>[5.53, 5.53]</strong>。コード1の出力は[5.525, 5.525]である。</li>
+<li>採点（3点）：ソフトマックス1点、加重和の式1点、値1点。±0.01は正解とみなす。</li>
+</ul>
+<p><strong>Q3. 位置符号なしでセルフアテンションだけを使うと、単語の順序を並べ替えたとき各単語の出力はどうなるか？</strong></p>
+<ul>
+<li>模範解答：まったく同じである。各単語の出力は他のすべての単語との比較だけで決まり、比較対象の集合は順序に関係なく同じだからである。コード1では差が1e-16、つまり計算誤差のレベルだった。</li>
+<li>採点（2点）：結果1点、理由1点。</li>
+</ul>
+<p><strong>Q4. d = 512のマルチヘッドアテンション層のパラメーター数と、ヘッドを16個に変えたときの変化は？</strong></p>
+<ul>
+<li>正解：4 × 512² + 4 × 512 = <strong>1,050,624個</strong>。ヘッド数を変えても同じである（ヘッドの幅が64 → 32になるだけ）。</li>
+<li>採点（2点）：値1点、「変わらない」とその理由1点。</li>
+</ul>
+<p><strong>Q5. 長さが4,096 → 8,192になると、アテンションスコアの個数は？</strong></p>
+<ul>
+<li>正解：<strong>4倍</strong>（16,777,216 → 67,108,864）。1点。</li>
+</ul>
+<h3>Colab課題の解答例</h3>
+<p><strong>基本課題：√d_kで割らない</strong></p>
+<ul>
+<li>図書館の例で割らないと、スコアが√2倍になり、アテンションが一方にさらに偏る。</li>
+<li>ベクトルを10倍にするとスコアが100倍になり、ソフトマックスがほぼ1マスだけに1を与える。すると残りのマスの勾配が0に近づき、学習が難しくなる。</li>
+<li>数値は、学生がコードで計算した値を引用させる。</li>
+</ul>
+<p><strong>チャレンジ課題：位置埋め込みを取り除く</strong></p>
+<ul>
+<li>予想：位置情報がないと、最初のマスが他のマスと区別できない。そのため最初のマスだけを選んで見ることができず、正解率は当て推量のレベルに近づくと予想される。「最初のマスへのアテンション」も1/T付近まで下がるだろう。</li>
+<li>実際の結果は実行して確認させる。講師は授業の前に一度自分で動かしてみる。</li>
+<li>採点のポイント：セクション6の「順序を並べ替えても同じ」と結びつけて説明したかを見る。</li>
+</ul>
+<h3>授業中によく出る質問</h3>
+<ul>
+<li><strong>「LSTMの数値が3-7と違うのはなぜですか？」</strong><ul>
+<li>3-8のコード2は、入力の長さを固定したモデルとして作り直した（3-7は長さ自由）。そのため初期の計算グラフと乱数の消費が少し異なる。</li>
+<li>T = 100の結果は、3-7が48.9 / 47.2%、3-8が50.6 / 57.4%である。どちらも当て推量のレベルという結論は同じである。</li>
+</ul>
+</li>
+<li><strong>「トランスフォーマーが勝ったなら、LSTMはもう使わないんですか？」</strong><ul>
+<li>この課題は正解が「最初の1マス」なので、アテンションに特に有利である。</li>
+<li>リアルタイムで1マスずつ処理する場合や、データが少ない場合には、再帰型モデルが今も使われている（3-7 セクション9）。</li>
+</ul>
+</li>
+<li><strong>「元論文の基本形のパラメーター数は？」</strong><ul>
+<li>このページでは、ブロック1つ分（3,152,384個）を式で計算して示している。</li>
+</ul>
+</li>
+</ul></section>
+</main>
+<footer><div class="wrap">
+  <p><b>ディープラーニング A to Z · 教育者用解答</b> — 文：Sangsun Ahn（株式会社M-Robo代表）。</p>
+  <p class="cc"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ja" target="_blank" rel="license noopener" aria-label="クリエイティブ・コモンズ 表示-非営利 4.0 国際"><span class="ccb">cc</span><span class="ccb">BY</span><span class="ccb">NC</span></a> この著作物は<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ja" target="_blank" rel="license noopener">クリエイティブ・コモンズ 表示-非営利 4.0 国際ライセンス（CC BY-NC 4.0）</a>の下で公開しています。非営利目的に限り自由に共有・改変できますが、<b>出典は必ず表示</b>してください。出典表示の例：Sangsun Ahn『ディープラーニング A to Z · 教育者用解答』AI Model Review。</p>
+</div></footer>
+<script>
+/* ══ 페이지 안 바로가기: 해시 이동 대신 스크립트로 스크롤 (GitHub 미리보기·iframe에서도 작동) ══ */
+(function(){
+  function go(id){var el=document.getElementById(id); if(!el) return false;
+    var nav=document.querySelector('nav.top'), off=(nav?nav.offsetHeight:0)+8;
+    var y=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-off;
+    var smooth=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    try{window.scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});}catch(e){window.scrollTo(0,Math.max(0,y));}
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+    if(el.tabIndex<0&&!/^(A|BUTTON|INPUT|SECTION|HEADER)$/.test(el.tagName)){} return true;}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=decodeURIComponent(a.getAttribute('href').slice(1)); if(!id) return;
+    if(go(id)) e.preventDefault();});
+  window.addEventListener('load',function(){ if(location.hash){var id=decodeURIComponent(location.hash.slice(1)); setTimeout(function(){go(id);},60);}});
+})();
+</script>
+<div class="lang-pick" id="langPick"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="言語: 日本語"><span aria-hidden="true">🌐</span>日本語</button><ul hidden><li><a href="../answers.html" hreflang="ko" lang="ko" data-l="ko">한국어</a></li><li><a href="../en/answers.html" hreflang="en" lang="en" data-l="en">English</a></li><li><a href="../zh/answers.html" hreflang="zh-CN" lang="zh-CN" data-l="zh">中文</a></li><li><a href="../ja/answers.html" hreflang="ja" lang="ja" data-l="ja" aria-current="true">日本語</a></li><li><a href="../uz/answers.html" hreflang="uz" lang="uz" data-l="uz">Oʻzbekcha</a></li><li><a href="../ru/answers.html" hreflang="ru" lang="ru" data-l="ru">Русский</a></li></ul></div><script>(function(){var p=document.getElementById("langPick"),b=p.querySelector("button"),u=p.querySelector("ul");function t(o){u.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");}b.addEventListener("click",function(e){e.stopPropagation();t(u.hidden);});document.addEventListener("click",function(){t(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});u.addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;try{localStorage.setItem("amr-lang",a.getAttribute("data-l"));}catch(x){}if(location.hash){e.preventDefault();location.href=a.getAttribute("href")+location.hash;}});})();</script>
+</body>
+</html>

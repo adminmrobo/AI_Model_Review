@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><link rel="alternate" hreflang="ko" href="3-5_text.html"><link rel="alternate" hreflang="en" href="en/3-5_text.html"><link rel="alternate" hreflang="zh-CN" href="zh/3-5_text.html"><link rel="alternate" hreflang="ja" href="ja/3-5_text.html"><link rel="alternate" hreflang="uz" href="uz/3-5_text.html"><link rel="alternate" hreflang="ru" href="ru/3-5_text.html"><script>(function(){var L=["ko","en","zh","ja","uz","ru"],cur="ko",f="3-5_text.html",w=null,q=location.search.match(/[?&]lang=([a-z]{2})/);try{if(q&&L.indexOf(q[1])>=0)localStorage.setItem("amr-lang",q[1]);w=localStorage.getItem("amr-lang");}catch(e){}if(q&&L.indexOf(q[1])>=0)w=q[1];if(!w&&cur==="ko"){var n=navigator.languages||[navigator.language||""];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().slice(0,2);if(L.indexOf(c)>=0){w=c;break;}}}if(!w||w===cur||L.indexOf(w)<0||(cur!=="ko"&&!q))return;var up=cur==="ko"?"":"../";location.replace(up+(w==="ko"?"":w+"/")+f+location.hash);})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>3-5 텍스트 — 글자가 숫자 벡터가 되기까지 | 딥러닝 A to Z</title>
 <meta name="description" content="유니코드와 UTF-8, BPE 토큰 나누기, 토큰 번호, 임베딩, 위치 정보, 다음 토큰 확률까지 글이 신경망의 입력이 되는 과정을 직접 계산하며 배운다. 글 안상선.">
@@ -385,7 +385,7 @@ footer p{max-width:none}
 @media (max-width:980px){.pixelart.think{opacity:.14}}
 </style>
 <style id="cc-style">.cc{margin-top:14px;padding-top:12px;border-top:1px solid rgba(181,171,214,.3);font-size:13px;line-height:1.7}.cc .ccb{display:inline-block;border:2px solid currentColor;border-radius:3px;padding:0 5px;margin-right:4px;font-weight:700;font-size:11.5px;letter-spacing:.02em}.cc a{color:inherit}</style>
-</head>
+<style>.lang-pick{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;font:600 14px/1.2 system-ui,sans-serif}.lang-pick>button{display:flex;gap:6px;align-items:center;background:#25283a;color:#eceaf3;border:1px solid #4a4f6e;border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);font:inherit}.lang-pick>button:hover{border-color:#f1b646}.lang-pick ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;background:#1c1e2d;border:1px solid #4a4f6e;border-radius:12px;min-width:150px;box-shadow:0 10px 30px rgba(0,0,0,.5)}.lang-pick ul[hidden]{display:none}.lang-pick a{display:block;padding:8px 12px;border-radius:8px;color:#eceaf3;text-decoration:none}.lang-pick a:hover,.lang-pick a:focus-visible{background:#25283a}.lang-pick a[aria-current]{color:#f1b646}@media print{.lang-pick{display:none}}</style></head>
 <body>
 
 <nav class="top" aria-label="이 페이지의 목차">
@@ -1443,5 +1443,6 @@ Gloss(GL,{scope:'section.level, header.hero, footer',skip:['mcard','codepanel','
   window.addEventListener('load',function(){ if(location.hash){var id=decodeURIComponent(location.hash.slice(1)); setTimeout(function(){go(id);},60);}});
 })();
 </script>
+<div class="lang-pick" id="langPick"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="언어: 한국어"><span aria-hidden="true">🌐</span>한국어</button><ul hidden><li><a href="3-5_text.html" hreflang="ko" lang="ko" data-l="ko" aria-current="true">한국어</a></li><li><a href="en/3-5_text.html" hreflang="en" lang="en" data-l="en">English</a></li><li><a href="zh/3-5_text.html" hreflang="zh-CN" lang="zh-CN" data-l="zh">中文</a></li><li><a href="ja/3-5_text.html" hreflang="ja" lang="ja" data-l="ja">日本語</a></li><li><a href="uz/3-5_text.html" hreflang="uz" lang="uz" data-l="uz">Oʻzbekcha</a></li><li><a href="ru/3-5_text.html" hreflang="ru" lang="ru" data-l="ru">Русский</a></li></ul></div><script>(function(){var p=document.getElementById("langPick"),b=p.querySelector("button"),u=p.querySelector("ul");function t(o){u.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");}b.addEventListener("click",function(e){e.stopPropagation();t(u.hidden);});document.addEventListener("click",function(){t(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});u.addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;try{localStorage.setItem("amr-lang",a.getAttribute("data-l"));}catch(x){}if(location.hash){e.preventDefault();location.href=a.getAttribute("href")+location.hash;}});})();</script>
 </body>
 </html>
