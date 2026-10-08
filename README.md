@@ -15,7 +15,7 @@ AI의 작동 원리부터 신경망의 부품, 이미지·음성·텍스트·시
 모든 페이지는 한국어가 기본이며 영어·중국어·일본어·우즈베크어·러시아어로 볼 수 있다.
 
 - **자동 전환:** 한국어 페이지에 처음 들어오면 브라우저 언어를 읽어 해당 언어 페이지로 자동으로 옮겨 간다(지원하지 않는 언어는 한국어 그대로).
-- **직접 고르기:** 모든 페이지 오른쪽 아래의 🌐 버튼에서 언어를 고른다. 고른 언어는 브라우저에 기억된다.
+- **직접 고르기:** 맨 위 메뉴의 🌐 언어 선택(첫 화면은 맨 위 언어 막대)이나 모든 페이지 오른쪽 아래의 🌐 버튼에서 언어를 고른다. 고른 언어는 브라우저에 기억된다.
 - **주소로 지정:** `?lang=en` 처럼 붙이면 그 언어로 연다 (`ko`, `en`, `zh`, `ja`, `uz`, `ru`).
 - 3-5 텍스트 편은 한국어 문장을 토큰으로 바꾸는 과정을 보여 주므로, 어느 언어로 보아도 예시 문장과 토큰은 한국어로 남는다.
 
@@ -69,7 +69,7 @@ Learn deep learning in eight interactive web pages — from how AI works, throug
 Korean is the default; every page is also available in English, Chinese, Japanese, Uzbek and Russian.
 
 - **Automatic:** when you first open a Korean page, it reads your browser language and switches to that language (unsupported languages stay in Korean).
-- **Manual:** pick a language from the 🌐 button at the bottom right of any page. Your choice is remembered in the browser.
+- **Manual:** pick a language from the 🌐 selector in the top menu (the language bar at the very top of the landing page) or from the 🌐 button at the bottom right of any page. Your choice is remembered in the browser.
 - **By URL:** add `?lang=en` (`ko`, `en`, `zh`, `ja`, `uz`, `ru`).
 - Part 3-5 (Text) shows how *Korean* sentences become tokens, so its example sentences and tokens stay in Korean in every language.
 
@@ -123,7 +123,7 @@ This work (web pages, images, code) is released under the [Creative Commons Attr
 默认语言为韩语，所有页面也提供英语、中文、日语、乌兹别克语和俄语版本。
 
 - **自动切换：** 首次打开韩语页面时，会读取浏览器语言并自动跳转到对应语言（不支持的语言保持韩语）。
-- **手动选择：** 在任意页面右下角的 🌐 按钮中选择语言，浏览器会记住你的选择。
+- **手动选择：** 在顶部菜单的 🌐 语言选择（首页为最上方的语言栏）或任意页面右下角的 🌐 按钮中选择语言，浏览器会记住你的选择。
 - **通过网址指定：** 加上 `?lang=zh` 即可（`ko`、`en`、`zh`、`ja`、`uz`、`ru`）。
 - 3-5「文本」篇演示的是*韩语*句子如何变成词元，因此无论用哪种语言浏览，示例句子和词元都保留韩语。
 
@@ -177,7 +177,7 @@ AIの仕組みからニューラルネットワークの部品、画像・音声
 韓国語が基本で、すべてのページを英語・中国語・日本語・ウズベク語・ロシア語でも読めます。
 
 - **自動切り替え：** 韓国語のページを初めて開くと、ブラウザの言語設定を読み取り、その言語のページへ自動で移動します（対応していない言語の場合は韓国語のまま）。
-- **手動で選ぶ：** 各ページ右下の 🌐 ボタンから言語を選べます。選んだ言語はブラウザに記憶されます。
+- **手動で選ぶ：** 最上部メニューの 🌐 言語選択（トップページは最上部の言語バー）か、各ページ右下の 🌐 ボタンから言語を選べます。選んだ言語はブラウザに記憶されます。
 - **URLで指定：** `?lang=ja` のように付けるとその言語で開きます（`ko`、`en`、`zh`、`ja`、`uz`、`ru`）。
 - 3-5「テキスト」回は*韓国語*の文がトークンになる過程を見せるため、どの言語で読んでも例文とトークンは韓国語のままです。
 
@@ -231,7 +231,7 @@ Chuqur oʻrganishni sakkizta interaktiv veb-sahifa orqali oʻrganing: AI qanday 
 Asosiy til — koreys tili; barcha sahifalar ingliz, xitoy, yapon, oʻzbek va rus tillarida ham mavjud.
 
 - **Avtomatik:** koreyscha sahifani birinchi marta ochganingizda brauzer tili aniqlanadi va sahifa oʻsha tilga oʻtadi (qoʻllab-quvvatlanmaydigan tillarda koreyscha qoladi).
-- **Qoʻlda tanlash:** istalgan sahifaning pastki oʻng burchagidagi 🌐 tugmasidan tilni tanlang. Tanlovingiz brauzerda saqlanadi.
+- **Qoʻlda tanlash:** eng yuqoridagi menyudagi 🌐 til tanlagichidan (bosh sahifada — eng yuqoridagi til paneli) yoki istalgan sahifaning pastki oʻng burchagidagi 🌐 tugmasidan tilni tanlang. Tanlovingiz brauzerda saqlanadi.
 - **Manzil orqali:** `?lang=uz` qoʻshing (`ko`, `en`, `zh`, `ja`, `uz`, `ru`).
 - 3-5 «Matn» qismi *koreyscha* gaplar tokenlarga qanday aylanishini koʻrsatadi, shuning uchun misol gaplar va tokenlar har qanday tilda koreyscha qoladi.
 
@@ -285,7 +285,7 @@ Ushbu asar (veb-sahifalar, rasmlar, kod) [Creative Commons Attribution-NonCommer
 Основной язык — корейский; все страницы доступны также на английском, китайском, японском, узбекском и русском.
 
 - **Автоматически:** при первом открытии корейской страницы определяется язык браузера, и страница переключается на него (для неподдерживаемых языков остаётся корейский).
-- **Вручную:** выберите язык кнопкой 🌐 в правом нижнем углу любой страницы. Выбор запоминается в браузере.
+- **Вручную:** выберите язык в 🌐 переключателе верхнего меню (на главной — в языковой панели в самом верху) или кнопкой 🌐 в правом нижнем углу любой страницы. Выбор запоминается в браузере.
 - **Через адрес:** добавьте `?lang=ru` (`ko`, `en`, `zh`, `ja`, `uz`, `ru`).
 - Часть 3-5 «Текст» показывает, как *корейские* предложения превращаются в токены, поэтому примеры предложений и токены остаются на корейском на любом языке.
 
